@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import "../css/chatPage.css";
-import React from 'react'
+
 
  const ChatPage = (props) => {
-    const history = useHistory();
     const [username, setUsername] = useState("");
     const [room, setRoom] = useState("");
 
@@ -12,7 +10,7 @@ import React from 'react'
         <div className="chatpage">
             <div className="">
                 <div className="chatpage-header">
-                    <div className="whiteTxt">
+                    <div className="titleText">
                         <div className="row center">
                             <h1> Welcome to Live-chat!</h1>
                         </div>
