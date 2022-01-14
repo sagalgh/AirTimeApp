@@ -8,12 +8,6 @@ import React from 'react'
     const [username, setUsername] = useState("");
     const [room, setRoom] = useState("");
 
-    function joinRoom(e) {
-        if (e) e.preventDefault();
-        props.setRoom({ room: room, username: username });
-        history.push("/room");
-    }
-
     return (
         <div className="chatpage">
             <div className="">
@@ -26,7 +20,7 @@ import React from 'react'
                             <h3> Join chat rooms, and talk to other travelers!</h3>
                         </div>
                     </div>
-                    <form onSubmit={joinRoom}>
+                    <form>
                         <div className="offset-2 col-8 ">
                             <div className="input-group flex-nowrap">
                                 <div className="input-group-prepend">
