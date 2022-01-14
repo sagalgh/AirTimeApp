@@ -1,0 +1,17 @@
+.chatpage-bottom{
+  background: white;
+  color:white;
+  padding: 2vh;
+  min-height:55vh;
+}
+
+.chatpage-header{
+  box-shadow: inset 0 0 100vw 5px rgba(0,0,0,1);
+  padding: 30vh;
+  height: 55vh;
+  margin: 0;
+  background-image: url("../resources/img/sunrise-traveler.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
