@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import "../css/chatPage.css";
-
+import { useNavigate } from 'react-router-dom';
 
  const ChatPage = (props) => {
+  const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [room, setRoom] = useState("");
+    
+    function joinRoom(e) {
+      if (e) e.preventDefault();
+      props.setRoom({ room: room, username: username });
+      navigate('/room');
+  }
 
     return (
         <div className="chatpage">
@@ -18,7 +25,7 @@ import "../css/chatPage.css";
                             <h3> Join chat rooms, and talk to other travelers!</h3>
                         </div>
                     </div>
-                    <form>
+                    <form onSubmit={joinRoom}>
                         <div className="offset-2 col-8 ">
                             <div className="input-group flex-nowrap">
                                 <div className="input-group-prepend">
