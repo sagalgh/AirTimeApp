@@ -1,7 +1,7 @@
 import React from 'react'
 import user from "../resources/img/user.svg";
 
-const User = () => {
+const User = (props) => {
   return (
     <div className="userlist-username">
             <img alt="user-icon" src={user} className="avatar" />
