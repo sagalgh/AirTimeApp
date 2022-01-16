@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import ChatPage from './containers/ChatPage';
+import ChatPage from './pages/ChatPage';
 ReactDOM.render(
   <React.StrictMode>
    <BrowserRouter>

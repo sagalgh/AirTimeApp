@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import MessageContainer from './MessageContainer';
 import UserMessages from './UserMessages';
+
 // import exit from "../resources/img/exit.svg";
 
 const MessageBox = (props) => {
