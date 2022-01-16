@@ -35,3 +35,18 @@ code {
   height: 500px;
   width: 85%;
 }
+
+.map-hidden {
+  display: "none";
+}
+
+#google {
+  height: 500px;
+  margin-right: 500px;
+  display: flex;
+}
+
+.location-search {
+  width: 1000px;
+  margin-top: 20px;
+}

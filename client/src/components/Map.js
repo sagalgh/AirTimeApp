@@ -59,7 +59,7 @@ export class MapContainer extends Component {
               <div>
                 <input
                   {...getInputProps({
-                    placeholder: "Search Places ...",
+                    placeholder: "Choose your Airport ...",
                     className: "location-search-input",
                   })}
                 />
