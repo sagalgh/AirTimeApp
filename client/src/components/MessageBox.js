@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import MessageContainer from './MessageContainer';
+import UserMessages from './UserMessages';
 const MessageBox = (props) => {
   const navigate = useNavigate();
   function disconnect() {
@@ -28,7 +29,28 @@ const MessageBox = (props) => {
                     </div>
                 </div>
             </div>
+
+            <div id="messages" className="row ">
+                <div className="col">
+                    {props.messages.map((msg, i) => {
+                        if (msg.user.id === props.ownUser.id) {
+                            return (
+                                <UserMessages key={i} message={msg} />
+                            );
+                        } else {
+                            return (
+                                <MessageContainer
+                                    key={i}
+                                    message={msg}
+                                    user={msg.user}
+                                />
+                            );
+                        }
+                    })}
+                </div>
             </div>
+            </div>
+            
   )
 }
 
