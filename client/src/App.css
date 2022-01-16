@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+#googleMaps {
+  margin: 15px 15px 15px 15px;
+}
