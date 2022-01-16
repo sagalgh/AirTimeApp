@@ -11,7 +11,7 @@ export const App = (props) => {
     const socketREF = useRef();
     const usersREF = useRef();
     useEffect(() => {
-        require("dotenv").config();
+      
         let url ="http://localhost:8000"
         //if roomId or username is not set, then return to homepage and clear redux state
         if (!props.roomId || !props.ownUser.username) {

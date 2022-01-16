@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { Users } from "../components/Users";
+import  Users  from "../components/Users";
 const mapStateToProps = (state) => {
     return {
         users: state.users,
@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
 const connection = connect(mapStateToProps, mapDispatchToProps);
 
 
-const connectedComponent = connection(UserListBase);
+const connectedComponent = connection(Users);
 
 export default connectedComponent
 // export { connectedComponent as UserList };
