@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserMessages = () => {
+const UserMessages = (props) => {
   return (
     <div>
       <div className="row ownMessage">

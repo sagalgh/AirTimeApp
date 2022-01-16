@@ -2,11 +2,14 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import MessageContainer from './MessageContainer';
 import UserMessages from './UserMessages';
+// import exit from "../resources/img/exit.svg";
+
 const MessageBox = (props) => {
   const navigate = useNavigate();
   function disconnect() {
   navigate('/');
   }
+  
   return (
     <div className="col messageBox-container">
             <div className="row messageBox-container-header">
@@ -23,7 +26,7 @@ const MessageBox = (props) => {
                         <img
                             alt="exit-button"
                             id="exit-btn"
-                            src={exit}
+                            // src={exit}
                             onClick={disconnect}
                         ></img>
                     </div>
