@@ -4,6 +4,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
+import MapWithADirectionsRenderer from "./MapWithADirectionsRenderer";
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -11,6 +12,11 @@ export class MapContainer extends Component {
     this.state = {
       // for google map places autocomplete
       address: "",
+      startingLatLong: {},
+      endingLatLong: {},
+      startingAddress: "",
+      endingAddress: "",
+      pathCoordinates: [],
 
       showingInfoWindow: false,
       activeMarker: {},
@@ -23,32 +29,62 @@ export class MapContainer extends Component {
     };
   }
 
-  handleChange = (address) => {
-    this.setState({ address });
+  handleChangeStart = (startingAddress) => {
+    this.setState({ startingAddress });
   };
 
-  handleSelect = (address) => {
-    this.setState({ address });
-    geocodeByAddress(address)
+  handleSelectStart = (startingAddress) => {
+    console.log("address", startingAddress);
+
+    this.setState({ startingAddress });
+    geocodeByAddress(startingAddress)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => {
-        console.log("Success", latLng);
+        console.log("starting latLong", latLng);
 
         // update center state
+        this.setState({ startingLatLong: latLng });
         this.setState({ mapCenter: latLng });
       })
       .catch((error) => console.error("Error", error));
+  };
+
+  handleChangeEnd = (endingAddress) => {
+    this.setState({ endingAddress });
+  };
+
+  handleSelectEnd = (endingAddress) => {
+    this.setState({ endingAddress });
+    geocodeByAddress(endingAddress)
+      .then((results) => getLatLng(results[0]))
+      .then((latLng) => {
+        console.log("ending latLong", latLng);
+
+        // update center state
+        this.setState({ endingLatLong: latLng });
+
+        this.setState({ mapCenter: latLng });
+      })
+      .catch((error) => console.error("Error", error));
+  };
+
+  handleSubmit = () => {
+    this.setState({
+      pathCoordinates: [this.state.startingLatLong, this.state.endingLatLong],
+    });
   };
 
   render() {
     return (
       <div id="googleMaps">
         <div className="placeholder-map"></div>
+
+        {/* starting point */}
         <div className="map-container">
           <PlacesAutocomplete
-            value={this.state.address}
-            onChange={this.handleChange}
-            onSelect={this.handleSelect}
+            value={this.state.startingAddress}
+            onChange={this.handleChangeStart}
+            onSelect={this.handleSelectStart}
           >
             {({
               getInputProps,
@@ -59,41 +95,89 @@ export class MapContainer extends Component {
               <div>
                 <input
                   {...getInputProps({
-                    placeholder: "Choose your Airport ...",
+                    placeholder: "Choose your starting point ...",
                     className: "location-search-input",
                   })}
                 />
                 <div className="autocomplete-dropdown-container">
                   {loading && <div>Loading...</div>}
 
-                  {suggestions
-                    .filter((suggestion) => {
-                      return suggestion.description.includes("Airport");
-                    })
-                    .map((suggestion) => {
-                      const className = suggestion.active
-                        ? "suggestion-item--active"
-                        : "suggestion-item";
-                      // inline style for demonstration purpose
-                      const style = suggestion.active
-                        ? { backgroundColor: "#fafafa", cursor: "pointer" }
-                        : { backgroundColor: "#ffffff", cursor: "pointer" };
-                      return (
-                        <div
-                          {...getSuggestionItemProps(suggestion, {
-                            className,
-                            style,
-                          })}
-                        >
-                          <span>{suggestion.description}</span>
-                        </div>
-                      );
-                    })}
+                  {suggestions.map((suggestion) => {
+                    const className = suggestion.active
+                      ? "suggestion-item--active"
+                      : "suggestion-item";
+                    // inline style for demonstration purpose
+                    const style = suggestion.active
+                      ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                      : { backgroundColor: "#ffffff", cursor: "pointer" };
+                    return (
+                      <div
+                        {...getSuggestionItemProps(suggestion, {
+                          className,
+                          style,
+                        })}
+                      >
+                        <span>{suggestion.description}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}
           </PlacesAutocomplete>
-          <Map
+
+          <PlacesAutocomplete
+            value={this.state.endingAddress}
+            onChange={this.handleChangeEnd}
+            onSelect={this.handleSelectEnd}
+          >
+            {({
+              getInputProps,
+              suggestions,
+              getSuggestionItemProps,
+              loading,
+            }) => (
+              <div>
+                <input
+                  {...getInputProps({
+                    placeholder: "Choose your destination ...",
+                    className: "location-search-input",
+                  })}
+                />
+                <div className="autocomplete-dropdown-container">
+                  {loading && <div>Loading...</div>}
+
+                  {suggestions.map((suggestion) => {
+                    const className = suggestion.active
+                      ? "suggestion-item--active"
+                      : "suggestion-item";
+                    // inline style for demonstration purpose
+                    const style = suggestion.active
+                      ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                      : { backgroundColor: "#ffffff", cursor: "pointer" };
+                    return (
+                      <div
+                        {...getSuggestionItemProps(suggestion, {
+                          className,
+                          style,
+                        })}
+                      >
+                        <span>{suggestion.description}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </PlacesAutocomplete>
+          <button onClick={this.handleSubmit}>See your route!</button>
+
+          <MapWithADirectionsRenderer
+            pathCoordinates={this.state.pathCoordinates}
+            // startingLatLong={this.state.startingLatLong}
+            // endingLatLong={this.state.endingLatLong}
+          />
+          {/* <Map
             google={this.props.google}
             zoom={16}
             containerStyle={{
@@ -114,7 +198,7 @@ export class MapContainer extends Component {
                 lng: this.state.mapCenter.lng,
               }}
             />
-          </Map>
+          </Map> */}
         </div>
       </div>
     );
