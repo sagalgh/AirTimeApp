@@ -1,80 +1,144 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
 import MapWithADirectionsRenderer from "./MapWithADirectionsRenderer";
+import List from "./List/List"
+import { getPlacesData } from '../api/travelAdvisorApi';
+ 
 
-export class MapContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // for google map places autocomplete
-      address: "",
-      startingLatLong: {},
-      endingLatLong: {},
-      startingAddress: "",
-      endingAddress: "",
-      pathCoordinates: [],
 
-      showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {},
+export const MapContainer = (props) => {
+  
+    // this.state = {
+    //   // for google map places autocomplete
+    //   address: "",
+    //   startingLatLong: {},
+    //   endingLatLong: {},
+    //   startingAddress: "",
+    //   endingAddress: "",
+    //   pathCoordinates: [],
 
-      mapCenter: {
-        lat: 49.1966913,
-        lng: -123.1815123,
-      },
-    };
-  }
+    //   showingInfoWindow: false,
+    //   activeMarker: {},
+    //   selectedPlace: {},
 
-  handleChangeStart = (startingAddress) => {
-    this.setState({ startingAddress });
+    //   mapCenter: {
+    //     lat: 49.1966913,
+    //     lng: -123.1815123,
+    //   },
+    // };
+    const [type, setType] = useState('restaurants');
+  const [rating, setRating] = useState('');
+
+  const [coords, setCoords] = useState({});
+  const [bounds, setBounds] = useState(null);
+
+  const [filteredPlaces, setFilteredPlaces] = useState([]);
+  const [places, setPlaces] = useState([]);
+
+  const [autocomplete, setAutocomplete] = useState(null);
+  const [childClicked, setChildClicked] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+      setCoords({ lat: latitude, lng: longitude });
+    });
+  }, []);
+
+  useEffect(() => {
+    const filtered = places.filter((place) => Number(place.rating) > rating);
+
+    setFilteredPlaces(filtered);
+  }, [rating]);
+
+  useEffect(() => {
+    if (bounds) {
+      setIsLoading(true);
+
+      getPlacesData(type, bounds.sw, bounds.ne)
+        .then((data) => {
+          setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
+          setFilteredPlaces([]);
+          setRating('');
+          setIsLoading(false);
+        });
+    }
+  }, [bounds, type]);
+
+  const onLoad = (autoC) => setAutocomplete(autoC);
+
+  const onPlaceChanged = () => {
+    const lat = autocomplete.getPlace().geometry.location.lat();
+    const lng = autocomplete.getPlace().geometry.location.lng();
+
+    setCoords({ lat, lng });
+  };
+  
+
+  const [startingLatLong, updateStartingLatLong] = useState({})
+  const [endingLatLong, updateEndingLatLong] = useState({})
+
+  const [startingAddress, updateStartingAddress] = useState("")
+  const [endingAddress, updateEndingAddress] = useState("")
+  const [pathCoordinates, updatePathCoordinates] = useState([])
+
+  const [mapCenter, updateMapCenter] = useState({
+    lat: 49.1966913,
+    lng: -123.1815123,
+  })
+
+
+
+  const handleChangeStart = (addressParam) => {
+    updateStartingAddress(addressParam);
   };
 
-  handleSelectStart = (startingAddress) => {
-    console.log("address", startingAddress);
+  const handleSelectStart = (addressParam) => {
+    console.log("address", addressParam);
 
-    this.setState({ startingAddress });
-    geocodeByAddress(startingAddress)
+    updateStartingAddress(addressParam);
+    geocodeByAddress(addressParam)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => {
         console.log("starting latLong", latLng);
 
         // update center state
-        this.setState({ startingLatLong: latLng });
-        this.setState({ mapCenter: latLng });
+        updateStartingLatLong(latLng);
+        updateMapCenter(latLng );
       })
       .catch((error) => console.error("Error", error));
   };
 
-  handleChangeEnd = (endingAddress) => {
-    this.setState({ endingAddress });
+  const handleChangeEnd = (endingAddress) => {
+    updateEndingAddress(endingAddress);
   };
 
-  handleSelectEnd = (endingAddress) => {
-    this.setState({ endingAddress });
+  const handleSelectEnd = (endingAddress) => {
+    updateEndingAddress(endingAddress);
     geocodeByAddress(endingAddress)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => {
         console.log("ending latLong", latLng);
 
         // update center state
-        this.setState({ endingLatLong: latLng });
+        updateEndingLatLong( latLng);
 
-        this.setState({ mapCenter: latLng });
+        updateMapCenter(latLng);
       })
       .catch((error) => console.error("Error", error));
   };
 
-  handleSubmit = () => {
-    this.setState({
-      pathCoordinates: [this.state.startingLatLong, this.state.endingLatLong],
-    });
+  const handleSubmit = () => {
+    console.log("starting", startingLatLong, "ending", endingLatLong)
+    updatePathCoordinates([startingLatLong, endingLatLong]
+    );
   };
 
-  render() {
+ 
     return (
       <div id="googleMaps">
         <div className="placeholder-map"></div>
@@ -82,9 +146,9 @@ export class MapContainer extends Component {
         {/* starting point */}
         <div className="map-container">
           <PlacesAutocomplete
-            value={this.state.startingAddress}
-            onChange={this.handleChangeStart}
-            onSelect={this.handleSelectStart}
+            value={startingAddress}
+            onChange={handleChangeStart}
+            onSelect={handleSelectStart}
           >
             {({
               getInputProps,
@@ -127,9 +191,9 @@ export class MapContainer extends Component {
           </PlacesAutocomplete>
 
           <PlacesAutocomplete
-            value={this.state.endingAddress}
-            onChange={this.handleChangeEnd}
-            onSelect={this.handleSelectEnd}
+            value={endingAddress}
+            onChange={handleChangeEnd}
+            onSelect={handleSelectEnd}
           >
             {({
               getInputProps,
@@ -170,12 +234,24 @@ export class MapContainer extends Component {
               </div>
             )}
           </PlacesAutocomplete>
-          <button onClick={this.handleSubmit}>See your route!</button>
+          <button onClick={handleSubmit}>See your route!</button>
 
           <MapWithADirectionsRenderer
-            pathCoordinates={this.state.pathCoordinates}
+            pathCoordinates={pathCoordinates}
             // startingLatLong={this.state.startingLatLong}
             // endingLatLong={this.state.endingLatLong}
+          />
+
+          <List 
+           isLoading={isLoading}
+           childClicked={childClicked}
+           places={filteredPlaces.length ? filteredPlaces : places}
+           type={type}
+           setType={setType}
+           rating={rating}
+           setRating={setRating}
+          
+          
           />
           {/* <Map
             google={this.props.google}
@@ -203,8 +279,9 @@ export class MapContainer extends Component {
       </div>
     );
   }
-}
+
+
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyAYJawNoAZKPJUqM64EzRwryux8G-4rlk8",
+  apiKey: "AIzaSyD_SFCAXBuXnQua8ixjsfOrnaaF2QwTl4I",
 })(MapContainer);
