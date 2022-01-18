@@ -35,25 +35,25 @@ html, .App{
 #userlist-title{
   line-height: 30px;
   /* background-color: #2d6885; */
-  background-color: #f2bc19d7;
+  background-color: #752c2c;;
   padding-top:10px;
   color:white;
   box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
   margin-bottom: 15px;
-  /* needed for centering */
   height: 6vh;
   
 }
 
 .userList-container{
   display:flex;
-  height:86vh;
+  flex:0.5;
+  /* height:86vh; */
   box-shadow: 2px 0px 10px 1px rgba(0,0,0,0.75);
   border-top-right-radius: 1em;
   /* border-bottom-right-radius: 1em; */
   /* background: linear-gradient(to top, #11151d 23%, #491362 100%); */
   /* background-color: #254455; */
-  background-color: rgb(161, 72, 72);
+  background-color: #254455;
 }
 
 
@@ -61,7 +61,6 @@ html, .App{
   flex-grow: 1;
   height:80vh;
   padding:10px;
-  /* border:1px solid black; */
   box-shadow: -2px 4px 10px 1px rgba(0,0,0,0.75);
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
@@ -72,6 +71,7 @@ html, .App{
   background-repeat: no-repeat;
   background-size: cover;
   display:flex;
+  flex:3;
 }
 
 .messageBox-container-header{
@@ -82,7 +82,7 @@ html, .App{
   height:6vh;
   /* background-color: rgb(196, 69, 69); */
   /* background-color: #2d6885; */
-  background-color: #f2bc19d7;
+  background-color: #752c2c;
   color:white
 }
 #messages::-webkit-scrollbar {
@@ -105,7 +105,7 @@ html, .App{
   align-self:flex-end;
   display: flex;
   padding: 10px 10px 0px 10px;
-  background-color:#f2bc19d7;
+  background-color:rgb(49, 40, 126);
   /* background-color: 	#127067; */
   border-radius: 10px;
   width: auto;
@@ -175,9 +175,7 @@ html, .App{
   margin-bottom: 5px;
 }
 .titleText{
-  color:black;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.16);
+  color:white;
 }
 .col{
   display: flex;

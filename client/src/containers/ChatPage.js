@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { ChatPage} from "../pages/ChatPage";
+import  ChatPage from "../pages/ChatPage";
 import { JOIN_ROOM } from "../reducers/actions";
 
 const mapStateToProps = (state) => {

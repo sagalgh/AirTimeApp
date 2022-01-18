@@ -3,14 +3,14 @@ import "./css/App.css";
 import io from "socket.io-client";
 import { MessageBox } from "./containers/MessageBox";
 import { MessageTextArea } from "./containers/MessageTextArea";
-import  ConnectedUsers from "./containers/UserList";
+import  {UserList} from "./containers/UserList";
 import { useNavigate } from 'react-router-dom';
 
 export const App = (props) => {
   const navigate = useNavigate();
     const socketREF = useRef();
     const usersREF = useRef();
-    
+
     useEffect(() => {
         let url ="http://localhost:8000"
         //if roomId or username is not set, then return to homepage and clear redux state
@@ -19,7 +19,7 @@ export const App = (props) => {
             props.disconnect();
             return;
         }
-
+        
         socketREF.current = io.connect(url);
         props.initialize(socketREF);
         socketREF.current.on("own-id", (id) => {
@@ -103,7 +103,7 @@ export const App = (props) => {
             <div id="app">
                 <div className="row">
                     <MessageBox />
-                    <ConnectedUsers />
+                    <UserList />
                 </div>
 
                 <div id="typingStatus">
@@ -117,4 +117,3 @@ export const App = (props) => {
     );
 };
 
-export default App

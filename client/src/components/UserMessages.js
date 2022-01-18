@@ -6,7 +6,8 @@ const UserMessages = (props) => {
       <div className="row ownMessage">
             <div className="col">
                 <div className="row">
-                    <p className="wrap messageText">{props.message.body}</p>
+            
+                  <p className="wrap messageText">{props.message.body}</p>
                 </div>
                 <div className="row timeStamp">
                     <small>{props.message.time}</small>

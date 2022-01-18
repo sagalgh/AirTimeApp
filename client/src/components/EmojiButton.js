@@ -1,7 +1,7 @@
-import React from 'react'
-
-const EmojiButton = ({appendEmoji}) => {
-  const [isActive, setIsActive] = useState(false);
+import React, { useState } from "react";
+import Picker from "emoji-picker-react";
+const EmojiButton = ({ appendEmoji }) => {
+    const [isActive, setIsActive] = useState(false);
     return (
         <div className="mr-1">
             {isActive ? (
@@ -28,7 +28,6 @@ const EmojiButton = ({appendEmoji}) => {
                 </button>
             )}
         </div>
-    )
-}
-
+    );
+};
 export default EmojiButton

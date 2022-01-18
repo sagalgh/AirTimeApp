@@ -2,17 +2,17 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import MessageContainer from './MessageContainer';
 import UserMessages from './UserMessages';
-
 // import exit from "../resources/img/exit.svg";
 
 const MessageBox = (props) => {
   const navigate = useNavigate();
+  
   function disconnect() {
   navigate('/');
   }
   
-  return (
-    <div className="col messageBox-container">
+    return (
+        <div className="col messageBox-container">
             <div className="row messageBox-container-header">
                 <div className="col">
                     <p>Room: {props.roomId} </p>
@@ -33,7 +33,6 @@ const MessageBox = (props) => {
                     </div>
                 </div>
             </div>
-
             <div id="messages" className="row ">
                 <div className="col">
                     {props.messages.map((msg, i) => {
@@ -53,9 +52,8 @@ const MessageBox = (props) => {
                     })}
                 </div>
             </div>
-            </div>
-            
-  )
+        </div>
+    );
 }
 
 export default MessageBox

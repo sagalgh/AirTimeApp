@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "../css/chatPage.css";
 import { useNavigate } from 'react-router-dom';
+import "../css/chatPage.css";
 
  const ChatPage = (props) => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
     function joinRoom(e) {
       if (e) e.preventDefault();
       props.setRoom({ room: room, username: username });
-      navigate('/room');
+      navigate("/room");
   }
 
     return (
