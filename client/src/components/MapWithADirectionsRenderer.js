@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import { CssBaseline, Grid } from '@material-ui/core';
+import "./style"
+import { Paper, Typography, useMediaQuery } from '@material-ui/core';
+
 
 const { compose, withProps, lifecycle } = require("recompose");
+
 const {
   withScriptjs,
   withGoogleMap,
@@ -24,6 +29,7 @@ const MapWithADirectionsRenderer = compose(
   lifecycle({
     componentWillReceiveProps() {
       console.log("props", this.props);
+      
       const DirectionsService = new google.maps.DirectionsService();
 
       DirectionsService.route(
@@ -45,14 +51,19 @@ const MapWithADirectionsRenderer = compose(
     },
   })
 )((props) => (
-  <GoogleMap
-    defaultZoom={15}
+
+<div className="mapContainer"> <GoogleMap
+    defaultZoom={17.5}
+    margin={[50, 50, 50, 50]}
     defaultCenter={
-      new google.maps.LatLng(43.69406708247738, -79.55762619955958)
+      new google.maps.LatLng(33.9416, -118.4085)
     }
+
+
   >
     {props.directions && <DirectionsRenderer directions={props.directions} />}
   </GoogleMap>
+  </div> 
 ));
 
 <MapWithADirectionsRenderer />;

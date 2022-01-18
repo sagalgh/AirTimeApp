@@ -7,10 +7,13 @@ import PlacesAutocomplete, {
 import MapWithADirectionsRenderer from "./MapWithADirectionsRenderer";
 import List from "./List/List"
 import { getPlacesData } from '../api/travelAdvisorApi';
+import './mapStyle'
+
  
 
 
 export const MapContainer = (props) => {
+
   
     // this.state = {
     //   // for google map places autocomplete
@@ -72,8 +75,10 @@ export const MapContainer = (props) => {
   const onLoad = (autoC) => setAutocomplete(autoC);
 
   const onPlaceChanged = () => {
-    const lat = autocomplete.getPlace().geometry.location.lat();
-    const lng = autocomplete.getPlace().geometry.location.lng();
+
+    const lat = "33.9416"
+    const lng = "-118.4085"
+    console.log("placessss", lat, lng)
 
     setCoords({ lat, lng });
   };
@@ -133,6 +138,7 @@ export const MapContainer = (props) => {
   };
 
   const handleSubmit = () => {
+    onPlaceChanged()
     console.log("starting", startingLatLong, "ending", endingLatLong)
     updatePathCoordinates([startingLatLong, endingLatLong]
     );
@@ -250,6 +256,7 @@ export const MapContainer = (props) => {
            setType={setType}
            rating={rating}
            setRating={setRating}
+         
           
           
           />

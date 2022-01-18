@@ -4,6 +4,10 @@ import PlacesAutocomplete, {
   getLatLng,
 } from "react-places-autocomplete";
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
+import { Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
+
+
 
 class Home extends React.Component {
   constructor(props) {
@@ -28,8 +32,12 @@ class Home extends React.Component {
   };
 
   handleSelect = (address) => {
+    this.setState({address})
     geocodeByAddress(address)
-      .then((results) => getLatLng(results[0]))
+      .then((results) => {
+        console.log("results", results)
+        return getLatLng(results[0])
+      })
       .then((latLng) => console.log("Success", latLng))
       .catch((error) => console.error("Error", error));
   };
@@ -88,6 +96,11 @@ class Home extends React.Component {
                 </div>
               )}
             </PlacesAutocomplete>
+            <Link to="/map">
+            <Button variant="btn btn-success">Find Airport Map</Button>
+            </Link>
+
+
             <div className="about">
               <div className="container">
                 <div className="row align-items-center my-5">
@@ -111,7 +124,7 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="map-hidden">
+            {/* <div className="map-hidden">
               <Map
                 google={this.props.google}
                 zoom={16}
@@ -134,7 +147,7 @@ class Home extends React.Component {
                   }}
                 />
               </Map>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
