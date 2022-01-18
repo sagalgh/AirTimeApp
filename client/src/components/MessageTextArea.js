@@ -52,7 +52,8 @@ let timeout = null;
             className="row form-inline"
             onSubmit={sendMessage}
         >
-            <textarea
+            <div className="input-group">
+            <textarea className="text-area"
                 id="msgInput"
                 rows="1"
                 className="form-control mr-0"
@@ -62,9 +63,12 @@ let timeout = null;
                 placeholder="Write something..."
             ></textarea>
             <EmojiButton appendEmoji={onEmojiSelected} />
+            <div className="input-group-append">
             <button type="submit" className="btn btn-primary">
                 Send
             </button>
+            </div>
+            </div>
         </form>
     );
 };

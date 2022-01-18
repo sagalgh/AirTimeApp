@@ -34,14 +34,12 @@ html, .App{
 
 #userlist-title{
   line-height: 30px;
-  /* background-color: #2d6885; */
-  background-color: #752c2c;;
+  background-color: #23699A;
   padding-top:10px;
   color:white;
-  box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+  /* box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75); */
   margin-bottom: 15px;
   height: 6vh;
-  
 }
 
 .userList-container{
@@ -53,7 +51,8 @@ html, .App{
   /* border-bottom-right-radius: 1em; */
   /* background: linear-gradient(to top, #11151d 23%, #491362 100%); */
   /* background-color: #254455; */
-  background-color: #254455;
+  background-color: #23699A
+  ; 
 }
 
 
@@ -67,22 +66,23 @@ html, .App{
 }
 .messageBox-container{
   border-top-left-radius: 1em;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) ),  url("../resources/img/chat-wallpaper.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url("../resources/img/chat-wallpaper.jpg");
+  /* background-repeat: no-repeat; */
+  background-size: 500px;
   display:flex;
+  align-items: stretch;
+  /* opacity: 50%; */
   flex:3;
 }
 
 .messageBox-container-header{
   display:flex;
-  /* flex-grow: 1; */
   padding: 1em;
   border-top-left-radius: 1em;
   height:6vh;
   /* background-color: rgb(196, 69, 69); */
   /* background-color: #2d6885; */
-  background-color: #752c2c;
+  background-color: #B8BFC3;
   color:white
 }
 #messages::-webkit-scrollbar {
@@ -105,8 +105,7 @@ html, .App{
   align-self:flex-end;
   display: flex;
   padding: 10px 10px 0px 10px;
-  background-color:rgb(49, 40, 126);
-  /* background-color: 	#127067; */
+  background-color:#6899BA;
   border-radius: 10px;
   width: auto;
   max-width: 20vw;
@@ -119,7 +118,8 @@ html, .App{
   display:flex;
   align-self:flex-start;
   padding: 10px 10px 0px 10px;
-  background-color: rgb(161, 72, 72);
+  background-color: 
+  #B8BFC3;
   border-radius: 10px;
   width: auto;
   max-width: 20vw;
@@ -143,12 +143,9 @@ html, .App{
   flex-grow: 1;
 }
 #msgInput{
-  /* border-radius: 5em; */
   border-top-left-radius: 5em;
   border-bottom-left-radius: 5em;
   flex-grow: 1;
-  margin-top:20px;
-  margin-right:10px;
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
   resize: none;
   max-height: 120px;
@@ -168,6 +165,11 @@ html, .App{
   padding-left:15px;
   word-break: break-all;
 }
+
+.text-area{
+  background-color: black;
+}
+
 .timeStamp{
   color:rgb(190, 190, 190);
   justify-content: flex-end;
@@ -213,6 +215,7 @@ html, .App{
 
 #emoji-btn{
   max-width: 40px;
+
 }
 
 .emojiPicker{

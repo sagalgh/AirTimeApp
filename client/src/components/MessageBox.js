@@ -2,7 +2,9 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import MessageContainer from './MessageContainer';
 import UserMessages from './UserMessages';
-// import exit from "../resources/img/exit.svg";
+import { faCommentDots, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const MessageBox = (props) => {
   const navigate = useNavigate();
@@ -10,26 +12,35 @@ const MessageBox = (props) => {
   function disconnect() {
   navigate('/');
   }
+  const style ={
+    lineHeight: "3vh",
+    display: "flex",
+    justifyContent: "flex-end"
+  }
+  const image= <FontAwesomeIcon icon={faSignOutAlt}/>
   
     return (
         <div className="col messageBox-container">
             <div className="row messageBox-container-header">
                 <div className="col">
-                    <p>Room: {props.roomId} </p>
+                    <p> <FontAwesomeIcon icon={faCommentDots} /> Room: {props.roomId}</p>
                 </div>
                 <div className="col text-right">
                     <div className="row right text-right">
-                        <p style={{ lineHeight: "3vh" }}>
+                        <p style={style}>
                             {props.users.length}{" "}
                             {`${props.users.length === 1 ? "user" : "users"}`}{" "}
                             online
-                        </p>
-                        <img
+                            <img
                             alt="exit-button"
                             id="exit-btn"
-                            // src={exit}
+                            src={image}
                             onClick={disconnect}
                         ></img>
+        
+                        </p>
+                        
+                       
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const UserMessages = (props) => {
   return (
-    <div>
+
       <div className="row ownMessage">
             <div className="col">
                 <div className="row">
@@ -14,7 +14,7 @@ const UserMessages = (props) => {
                 </div>
             </div>
         </div>
-    </div>
+ 
   )
 }
 
