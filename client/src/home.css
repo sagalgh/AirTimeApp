@@ -17,3 +17,38 @@
 :-moz-placeholder {
   color: #56585b;
 }
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    background: url('https://github.com/sagalafrah/porjectphotos/blob/main/agnis-leznins-Lf6iovoj-Qg-unsplash.jpg?raw=true') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    color: #FFF;
+    font-weight: 700;
+    overflow: hidden;
+  }
+  
+  ul, nav{
+    list-style: none;
+    padding: 0;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    
+  }
+  
+  a:hover {
+    opacity: 1;
+  }
+  
