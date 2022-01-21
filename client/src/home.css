@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+::-webkit-input-placeholder {
+  color: #56585b;
+}
+
+::-moz-placeholder {
+  color: #56585b;
+}
+
+:-moz-placeholder {
+  color: #56585b;
+}
