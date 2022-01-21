@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./css/App.css";
 import io from "socket.io-client";
 import { MessageBox } from "./containers/MessageBox";
@@ -7,6 +7,7 @@ import  {UserList} from "./containers/UserList";
 import { useNavigate } from 'react-router-dom';
 
 export const App = (props) => {
+    
   const navigate = useNavigate();
     const socketREF = useRef();
     const usersREF = useRef();

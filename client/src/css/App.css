@@ -18,7 +18,10 @@ html, .App{
   margin:20px;
   margin-left:35px;
 }
-
+.fa-star{
+  display:flex;
+  justify-content: flex-end;
+}
 #users{
   overflow-y: auto;
   overflow-x: hidden; 
@@ -34,7 +37,7 @@ html, .App{
 
 #userlist-title{
   line-height: 30px;
-  background-color: #23699A;
+  background-color: #f361fb;
   padding-top:10px;
   color:white;
   /* box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75); */
@@ -51,7 +54,7 @@ html, .App{
   /* border-bottom-right-radius: 1em; */
   /* background: linear-gradient(to top, #11151d 23%, #491362 100%); */
   /* background-color: #254455; */
-  background-color: #23699A
+  background-color: #f361fb
   ; 
 }
 
@@ -82,7 +85,7 @@ html, .App{
   height:6vh;
   /* background-color: rgb(196, 69, 69); */
   /* background-color: #2d6885; */
-  background-color: #B8BFC3;
+  background-color: #1a1463;
   color:white
 }
 #messages::-webkit-scrollbar {
@@ -105,7 +108,7 @@ html, .App{
   align-self:flex-end;
   display: flex;
   padding: 10px 10px 0px 10px;
-  background-color:#6899BA;
+  background-color:#1a1463;
   border-radius: 10px;
   width: auto;
   max-width: 20vw;
@@ -119,7 +122,7 @@ html, .App{
   align-self:flex-start;
   padding: 10px 10px 0px 10px;
   background-color: 
-  #B8BFC3;
+  #902BF5;;
   border-radius: 10px;
   width: auto;
   max-width: 20vw;
@@ -174,7 +177,7 @@ html, .App{
   color:rgb(190, 190, 190);
   justify-content: flex-end;
   margin-top:-20px;
-  margin-bottom: 5px;
+  margin-bottom: 5px;    
 }
 .titleText{
   color:white;
@@ -228,4 +231,5 @@ html, .App{
   cursor: pointer;
   height:40px;
   margin-left:20px;
+  padding-bottom: 10px;
 }

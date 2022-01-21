@@ -17,8 +17,7 @@ const MessageBox = (props) => {
     display: "flex",
     justifyContent: "flex-end"
   }
-  const image= <FontAwesomeIcon icon={faSignOutAlt}/>
-  
+  console.log("messages", props.messages)
     return (
         <div className="col messageBox-container">
             <div className="row messageBox-container-header">
@@ -31,13 +30,7 @@ const MessageBox = (props) => {
                             {props.users.length}{" "}
                             {`${props.users.length === 1 ? "user" : "users"}`}{" "}
                             online
-                            <img
-                            alt="exit-button"
-                            id="exit-btn"
-                            src={image}
-                            onClick={disconnect}
-                        ></img>
-        
+                            < FontAwesomeIcon icon={faSignOutAlt} onClick={disconnect} id="exit-btn"/>
                         </p>
                         
                        

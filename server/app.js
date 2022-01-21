@@ -3,18 +3,29 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const socket = require("socket.io");
+const apiRoutes = require('./routes/index');
+var cors = require('cors')
+var bodyParser = require('body-parser')
+const client = require('./db/index')
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
 
 const port = process.env.PORT || 8000;
-const io = socket(server,{
+const io = socket(server,
+    {
     cors: {
     origin:"http://localhost:3000"
-  }});
+  }}
+);
 
 let rooms = [];
-// app.get("/", (req,res)=>{
-//     res.status(200).send("Hello world")
-// })
-app.use(express.static("public"));
+app.get("/", (req,res)=>{
+    res.status(200).send("Hello world")
+})
+app.use(cors())
+app.use("/api", apiRoutes(client));
+
 
 io.on("connection", (socket) => {
     console.log("New connection: " + socket.id);
@@ -89,5 +100,8 @@ io.on("connection", (socket) => {
 });
 
 server.listen(port, () => console.log(`Server is running on port ${port}`));
+app.listen(9000, () => {
+    console.log(`Example app listening on port ${9000}`);
+  });
 
-module.exports = app;
+// module.exports = app;

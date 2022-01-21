@@ -1,6 +1,7 @@
 import React from 'react'
 
 const UserMessages = (props) => {
+ 
   return (
 
       <div className="row ownMessage">
@@ -10,7 +11,7 @@ const UserMessages = (props) => {
                   <p className="wrap messageText">{props.message.body}</p>
                 </div>
                 <div className="row timeStamp">
-                    <small>{props.message.time}</small>
+                    <small>{props.message.time} </small>
                 </div>
             </div>
         </div>
