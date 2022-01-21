@@ -52,3 +52,59 @@ html {
     opacity: 1;
   }
   
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 50px;
+  }
+  
+  i {
+    font-size: 1.3rem;
+  }
+  
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 10px 100px 0;
+  }
+  
+  header nav ul {
+    display: flex;
+  }
+  
+  header nav li{
+    margin: 0 15px;
+  }
+  
+  header nav li:first-child{
+    margin-left: 0; 
+  }
+  
+  header nav li:last-child{
+    margin-right: 0;  
+  }
+  
+  a.btn {
+    color: #fff;
+    border-radius: 100px !important;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.5);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  
+  a.btn:hover {
+    background: #912BF6;
+    border: 1px solid #912BF6;
+    color: #fff;
+  }
+  
