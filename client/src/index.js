@@ -9,6 +9,8 @@ import Flight from './components/Flight';
 import Map from './components/Map/Map';
 import Tsa from './components/Tsa';
 import Chat from './components/Chat';
+import Register from './components/Register';
+import SignIn from './components/SignIn';
 
 import reportWebVitals from './reportWebVitals';
 import App from './App';
@@ -22,6 +24,8 @@ ReactDOM.render(
       <Route path='/flight' element={<Flight />} />
       <Route path='/tsa' element={<Tsa />}></Route>
       <Route path='/chat' element={<Chat />}></Route>
+      <Route path='/register' element={<Register />}></Route>
+      <Route path='/signin' element={<SignIn />}></Route>
     </Routes>
   </Router>,
 
