@@ -26,7 +26,7 @@ function Navigation() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/chat">
+                <NavLink className="nav-link" to="/chathomepage">
                   Chat
                 </NavLink>
               </li>
