@@ -16,6 +16,56 @@ import Header from '../Header/Header';
 
 /*global google*/
 
+function DirectionRenderer(props) {
+  const [directionsRenderer, setDirectionsRenderer] = useState(
+    new google.maps.DirectionsRenderer()
+  );
+
+  async function getRoute(origin, destination) {
+    const directionsService = new google.maps.DirectionsService();
+    return new Promise(function (resolve, reject) {
+      directionsService.route(
+        {
+          origin: origin,
+          destination: destination,
+          travelMode: google.maps.TravelMode.WALKING,
+        },
+        (result, status) => {
+          if (status === google.maps.DirectionsStatus.OK) {
+            console.log('results', result);
+
+            resolve(result);
+          } else {
+            reject(result);
+          }
+        }
+      );
+    });
+  }
+
+  async function renderRoute() {
+    const directions = await getRoute(props.origin, props.destination);
+    console.log('direction__________', directions);
+    console.log('steps__________', directions.routes[0].legs[0].steps);
+    props.setDirection2Location(directions.routes[0].legs[0].steps);
+
+    directionsRenderer.setDirections(directions);
+  }
+
+  useEffect(() => {
+    directionsRenderer.setMap(props.map);
+    console.log('setMap', props.map);
+  }, [props.map]);
+
+  useEffect(() => {
+    renderRoute().catch((err) => {
+      console.log(err);
+    });
+  }, [props.origin, props.destination]);
+
+  return null;
+}
+
 const Map = ({
   coords,
   places,
@@ -101,14 +151,14 @@ const Map = ({
           onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
           onChildClick={(child) => setChildClicked(child)}
         >
-          {/* {map && (
+          {map && (
             <DirectionRenderer
               map={map}
               origin={startLatLngSubmit}
               destination={endLatLngSubmit}
               setDirection2Location={setDirection2Location}
             />
-          )} */}
+          )}
           {places.map((place, i) => (
             <div
               className={classes.markerContainer}
