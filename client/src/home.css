@@ -108,3 +108,216 @@ html {
     color: #fff;
   }
   
+  .cover  {
+    height: 100vh;
+    width: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.05)), to(rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+    padding: 20px 50px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+  
+  .flex-form button[type="submit"] {
+    background: #912BF6;
+    border: 1px solid #912BF6;
+    color: #fff;
+    padding: 0 30px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  
+  .flex-form button[type="submit"]:hover {
+    background: #FFF;
+    border: 1px solid #912BF6;
+    color: #912BF6;
+    opacity: 0.5;
+  }
+  
+  svg {
+    vertical-align: text-top;
+  }
+  
+  .flex-form {
+    display: -webkit-box;
+    display: flex;
+    margin-top: 25px;
+    z-index: 10;
+    position: relative;
+    width: 500px;
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.4);
+  }
+  
+  .flex-form > * {
+    border: 0;
+    background: #fff;
+    line-height: 50px;
+    font-size: 1rem;
+    border-radius: 100px;
+    outline: 0;
+    -webkit-appearance: none;
+  }
+  
+  input[type="search"] {
+    flex-basis: 500px;
+    margin-right: 15px;
+  }
+  
+  
+  @media all and (max-width:800px) {
+    body {
+      font-size: 0.9rem;
+    }
+  
+    .flex-form {
+      width: 100%;
+    }
+  
+    input[type="search"] {
+      flex-basis: 100%;
+    }
+  
+    .flex-form > * {
+      font-size: 0.9rem;
+    }
+  
+  
+    header {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      padding: 10px !important;
+    }
+  
+    header h2 {
+      margin-bottom: 15px;
+      color: #FFF !important;
+      font-weight: 700;
+    }
+  
+  
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+  
+    .cover {
+      padding: 0px;
+    }
+  
+    #madeby {
+      padding: 30px 20px;
+    }
+  }
+  
+  @media all and (max-width:360px) {
+    header nav li{
+      margin: 0 10px;
+    }
+  
+    .flex-form {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+    }
+  
+    input[type="search"] {
+      flex-basis: 0;
+    }
+  
+    label {
+      display: none;
+    }
+  }
+
+  #splash {
+    background: #912BF6;
+    background-repeat: repeat-y;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    animation: splash 3s ease-in;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+  }
+  
+  #loader {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,0);
+  }
+  
+  #loader:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    bottom: -170px;
+    width: 3px;
+    background: #fff;
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+    height: 200px;
+  }
+  
+  #loader:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-left: 8px;
+    bottom: -190px;
+    width: 3px;
+    background: #000;
+    background: linear-gradient(to bottom, rgba(0,0,0,.2) 0%, rgba(0,0,0,.2) 50%, rgba(0,0,0,0) 100%);
+    height: 200px;
+  }
+  
+  #splash .anim {
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    width: 100px;
+    transform: translate(-50%,100%);
+    animation: loader 4s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+  }
+  
+  @keyframes loader {
+    0% {
+      transform: translate(-50%,110%);
+    }
+    30% {
+      transform: translate(-50%,50%);
+    }
+    100% {
+      transform: translate(-50%,0%);
+    }
+  }
+  
+  @keyframes splash {
+    0% {
+      transform: translate(0%,0%);
+    }
+    50% {
+      transform: translate(0%,0%);
+    }
+    100% {
+      transform: translate(0%,-100%);
+    }
+  }
+  
