@@ -24,7 +24,7 @@ router.post('/favorites', function(req,res){
             res.send({error: "no favorited msg"})
             return;
           }
-          res.json(newFavoritedMsg);
+          res.json(newFavoritedMsg.rows[0]);
         })
         .catch((e) => { 
           console.log(e)

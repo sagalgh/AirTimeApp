@@ -16,7 +16,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         disconnect: () => dispatch({ type: DISCONNECTED }),
         addPinnedMessages: function(newPinnedMessages){
-            console.log("NewPinnedMessgaes ",newPinnedMessages )
             return dispatch({type: PINNED_MSG, payload: newPinnedMessages})
         }
     };
