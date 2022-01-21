@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MessageBox = (props) => {
   const navigate = useNavigate();
+  console.log('state pinned messages', props.pinnedMessages)
   
   function disconnect() {
   navigate('/');
@@ -17,7 +18,7 @@ const MessageBox = (props) => {
     display: "flex",
     justifyContent: "flex-end"
   }
-  console.log("messages", props.messages)
+
     return (
         <div className="col messageBox-container">
             <div className="row messageBox-container-header">
@@ -50,6 +51,7 @@ const MessageBox = (props) => {
                                     key={i}
                                     message={msg}
                                     user={msg.user}
+                                    addPinnedMessages={props.addPinnedMessages}
                                 />
                             );
                         }

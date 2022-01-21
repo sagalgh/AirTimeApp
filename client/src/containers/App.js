@@ -8,6 +8,7 @@ import {
     USER_JOINED,
     IS_TYPING,
     STOPPED_TYPING,
+    PINNED_MSG,
 } from "../reducers/actions";
 const mapStateToProps = (state) => {
     return {
@@ -31,6 +32,8 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({ type: USER_JOINED, payload: userlist }),
         addTypingUser: (typingUser) =>
             dispatch({ type: IS_TYPING, payload: typingUser }),
+        addPinnedMessages: (pinnedMessage) =>
+            dispatch({  type: PINNED_MSG, payload: pinnedMessage }),
         removeTypingUser: (id) =>
             dispatch({ type: STOPPED_TYPING, payload: id }),
     };

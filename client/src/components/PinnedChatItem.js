@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PinnedChatItem = () => {
+const PinnedChatItem = (props) => {
   return (
   <div>
 

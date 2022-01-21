@@ -7,11 +7,15 @@ const MessageContainer = (props) => {
     const[likedMessage, setLikedMessage] = useState(false);
     const clickHandler= function(){
         setLikedMessage(!likedMessage)
+        if(likedMessage){
         axios.post('http://localhost:9000/api/favorites', {roomID: props.message.roomId, userID: props.message.user["id"], text: props.message.body})
         .then((response) => {
-            console.log(response)
+            console.log("RESPONSE!!!!", response.data)
+            props.addPinnedMessages(response.data)
         })
       }
+    }
+  
     return (
     <div className="row message">
     <div className="col">

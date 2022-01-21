@@ -10,10 +10,10 @@ import { App } from "./containers/App";
 import reportWebVitals from './reportWebVitals';
 import {ChatPage} from './containers/ChatPage';
 import { createStore } from "redux";
-import { liveChat } from "./reducers";
+import { rootReducer } from "./reducers";
 import { Provider } from "react-redux";
 
-const store = createStore(liveChat);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>

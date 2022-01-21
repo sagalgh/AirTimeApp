@@ -3,10 +3,11 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const socket = require("socket.io");
+const client = require('./db/index')
 const apiRoutes = require('./routes/index');
 var cors = require('cors')
 var bodyParser = require('body-parser')
-const client = require('./db/index')
+
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
@@ -24,7 +25,7 @@ app.get("/", (req,res)=>{
     res.status(200).send("Hello world")
 })
 app.use(cors())
-app.use("/api", apiRoutes(client));
+app.use("/api", apiRoutes);
 
 
 io.on("connection", (socket) => {

@@ -7,6 +7,7 @@ import {
   USER_JOINED,
   IS_TYPING,
   STOPPED_TYPING,
+  PINNED_MSG
 } from "./actions";
 const INITIAL_STATE = {
   ownUser: {},
@@ -15,9 +16,10 @@ const INITIAL_STATE = {
   typingUsers: [],
   messages: [],
   roomId: "",
+  pinnedMessages: []
 };
 
-function liveChat(state = INITIAL_STATE, action) {
+function rootReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
       case JOIN_ROOM:
           return {
@@ -58,9 +60,14 @@ function liveChat(state = INITIAL_STATE, action) {
           };
       case RECEIVED_MSG:
           return { ...state, messages: [...state.messages, action.payload] };
+      case PINNED_MSG:
+        console.log("I AM HERE", action.payload)
+          return {
+              ...state, pinnedMessages: [...state.pinnedMessages, action.payload]
+          }
       default:
           return state;
   }
 }
 
-export { liveChat };
+export { rootReducer };

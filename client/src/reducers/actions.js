@@ -7,3 +7,4 @@ export const INITIALIZE = "INITIALIZE";
 export const JOIN_ROOM = "JOIN_ROOM";
 export const IS_TYPING = "IS_TYPING";
 export const STOPPED_TYPING = "STOPPED_TYPING";
+export const PINNED_MSG = "PINNED_MSG";
