@@ -22,6 +22,8 @@ ReactDOM.render(
       <Route path='/flight' element={<Flight />} />
       <Route path='/tsa' element={<Tsa />}></Route>
       <Route path='/chat' element={<Chat />}></Route>
+      <Route path='/register' element={<Chat />}></Route>
+      <Route path='/signin' element={<Chat />}></Route>
     </Routes>
   </Router>,
 
