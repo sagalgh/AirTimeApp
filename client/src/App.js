@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CssBaseline, Grid, Card, CardMedia, Box } from '@material-ui/core';
-import { getPlacesData } from './api/travelAdvisorAPI';
+import { getPlacesData } from './api/travelAdvisorApi';
 import Header from './components/Header/Header';
 import List from './components/List/List';
 import Map from './components/Map/Map';
