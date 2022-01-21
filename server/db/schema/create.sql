@@ -43,7 +43,7 @@ CREATE TABLE flights (
 CREATE TABLE favorited_chats(
   id SERIAL PRIMARY KEY NOT NULL,
   room_id INTEGER NOT NULL,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  user_id VARCHAR NOT NULL,
   text VARCHAR(255) NOT NULL
 )
 

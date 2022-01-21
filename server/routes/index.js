@@ -26,7 +26,10 @@ router.post('/favorites', function(req,res){
           }
           res.json(newFavoritedMsg);
         })
-        .catch((e) => res.send(e));
+        .catch((e) => { 
+          console.log(e)
+          res.send({error:"server unavailable"})
+        });
 })
 // }
 module.exports = router;

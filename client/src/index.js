@@ -9,11 +9,17 @@ import './index.css';
 import { App } from "./containers/App";
 import reportWebVitals from './reportWebVitals';
 import {ChatPage} from './containers/ChatPage';
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import { rootReducer } from "./reducers";
 import { Provider } from "react-redux";
+import logger from 'redux-logger'
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer,
+  applyMiddleware(logger)
+)
+ 
+// const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>
