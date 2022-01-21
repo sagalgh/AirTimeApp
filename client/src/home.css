@@ -40,6 +40,13 @@ html {
     list-style: none;
     padding: 0;
   }
+
+
+  .navbar {
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
   
   a {
     color: #fff;
