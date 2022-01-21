@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navigation from "./components/Navigation";
+// import Navigation from "./components/Navigation";
 import Home from "./components/Home";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Flight from "./components/Flight";
 import Map from "./components/Map";
 import Tsa from "./components/Tsa";
@@ -14,7 +14,7 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <Router>
-    <Navigation />
+    {/* <Navigation /> */}
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/map" element={<Map />} />
@@ -22,7 +22,7 @@ ReactDOM.render(
       <Route path="/tsa" element={<Tsa />}></Route>
       <Route path="/chat" element={<Chat />}></Route>
     </Routes>
-    <Footer />
+    {/* <Footer /> */}
   </Router>,
 
   document.getElementById("root")
