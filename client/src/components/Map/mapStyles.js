@@ -1,4 +1,3 @@
-
 export default [
   {
     featureType: 'all',
@@ -17,6 +16,5 @@ export default [
         weight: '1.18',
       },
     ],
-  }
-  
+  },
 ];
