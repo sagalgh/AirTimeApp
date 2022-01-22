@@ -29,6 +29,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
       style={{
         borderRadius: 60,
         overflow: 'hidden',
+        backgroundColor: '#eb8560',
       }}
     >
       <CardMedia
@@ -41,7 +42,15 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         title={place.name}
       />
       <CardContent>
-        <Typography gutterBottom variant='h5'>
+        <Typography
+          gutterBottom
+          variant='h5'
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
           {place.name}
         </Typography>
         <Box display='flex' justifyContent='space-between' my={2}>
@@ -77,7 +86,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
       </CardContent>
       <CardActions
         style={{
-          paddingLeft: '120px',
+          paddingLeft: '150px',
           paddingRight: '120px',
         }}
       >
@@ -86,14 +95,14 @@ const PlaceDetails = ({ place, selected, refProp }) => {
           color='primary'
           onClick={() => window.open(place.web_url, '_blank')}
         >
-          <RemoveRedEye />
+          <RemoveRedEye style={{ color: 'grey' }} />
         </Button>
         <Button
           size='small'
           color='primary'
           onClick={() => window.open(place.website, '_blank')}
         >
-          <RestaurantMenuIcon style={{ color: '#902bf5' }} />
+          <RestaurantMenuIcon style={{ color: 'grey' }} />
         </Button>
       </CardActions>
     </Card>

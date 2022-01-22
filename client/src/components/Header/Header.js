@@ -19,10 +19,14 @@ const Header = ({
       position='static'
       className={classes.appbar}
       style={{
-        background: '#ffffff',
+        background: '#eb8560',
         borderStyle: '1rem solid;',
         opacity: 2.5,
         marginRight: 20,
+        width: '92%',
+        borderRadius: '25px',
+        marginBottom: '25px',
+        opacity: 2.5,
       }}
     >
       <Toolbar className={classes.toolbar}>
