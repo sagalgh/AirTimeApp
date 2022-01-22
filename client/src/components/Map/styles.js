@@ -11,9 +11,11 @@ export default makeStyles((theme) => ({
     '&:hover': { transform: 'scale(1.2)' },
   },
   mapContainer: {
-    height: '83vh',
-    width: '100%',
-    // marginTop: '40px',
+    height: '78vh',
+    width: '60vw',
+    marginRight: '0px',
+    marginLeft: '22px',
+
     boxShadow: '-2px 2px 16px 2px rgba(0,0,0,0.25)',
     [theme.breakpoints.down('sm')]: {
       height: '80vh',
@@ -60,9 +62,7 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  inputRoot: {
-    color: 'inherit',
-  },
+  inputRoot: { color: 'inherit' },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
@@ -77,5 +77,11 @@ export default makeStyles((theme) => ({
 
   directions: {
     marginLeft: '30px',
+  },
+
+  appbar: {
+    marginTop: '20px',
+    width: '60vw',
+    marginLeft: '22px',
   },
 }));

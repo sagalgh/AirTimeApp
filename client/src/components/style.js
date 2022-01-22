@@ -13,7 +13,7 @@ export default makeStyles((theme) => ({
   mapContainer: {
     height: '83vh',
     width: '100%',
-    marginTop: '40px',
+    // marginTop: '40px',
     boxShadow: '-2px 2px 16px 2px rgba(0,0,0,0.25)',
     [theme.breakpoints.down('sm')]: {
       height: '80vh',

@@ -15,11 +15,17 @@ const Header = ({
   const classes = useStyles();
 
   return (
-    <AppBar position='static'>
+    <AppBar
+      position='static'
+      className={classes.appbar}
+      style={{
+        background: '#3F2534',
+        borderStyle: '1rem solid;',
+        opacity: 2.5,
+        marginRight: 20,
+      }}
+    >
       <Toolbar className={classes.toolbar}>
-        <Typography variant='h5' className={classes.title}>
-          Airtime
-        </Typography>
         <Box display='flex'>
           <Typography variant='h6' className={classes.title}></Typography>
           <Autocomplete

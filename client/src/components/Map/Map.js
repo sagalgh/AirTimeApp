@@ -123,7 +123,7 @@ const Map = ({
   }
 
   return (
-    <div className='header'>
+    <div className='header-map'>
       <Header
         handleSelectStart={handleSelectStart}
         handleChangeStart={handleChangeStart}

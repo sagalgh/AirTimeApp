@@ -24,7 +24,7 @@ html {
     box-sizing: border-box;
   }
   
-  body {
+  body .welcome {
     font-family: 'Lato', sans-serif;
     margin: 0;
     background: url('https://github.com/sagalafrah/porjectphotos/blob/main/agnis-leznins-Lf6iovoj-Qg-unsplash.jpg?raw=true') no-repeat center center fixed;
