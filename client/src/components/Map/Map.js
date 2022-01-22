@@ -194,7 +194,7 @@ const Map = ({
                     className={classes.pointer}
                     src={
                       place.photo
-                        ? place.photo.images.large.url
+                        ? place.photo.images.medium.url
                         : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'
                     }
                   />

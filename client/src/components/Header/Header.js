@@ -41,7 +41,7 @@ const Header = ({
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder='Choose your starting point…'
+                placeholder='From'
                 classes={{ root: classes.inputRoot, input: classes.inputInput }}
               />
             </div>
@@ -55,7 +55,7 @@ const Header = ({
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder='Choose your destination…'
+                placeholder='To'
                 classes={{ root: classes.inputRoot, input: classes.inputInput }}
               />
             </div>
