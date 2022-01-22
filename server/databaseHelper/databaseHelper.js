@@ -23,7 +23,7 @@ const matchKeyWords= {
     categoryId : 101
   },
   museums: {
-    keyWords: ["museum", "museums", "gallery", "collection"],
+    keyWords: ["museum", "museums", "gallery", "collection", "visit"],
     categoryId : 103
   },
   restaurants:{
@@ -38,71 +38,51 @@ const matchKeyWords= {
 //function that matches message to category_id:
 const categorizeMessage = function(pinnedMessage,matchKeyWords){
   let category_id;
-  let firstWord = item.toLowerCase().split(" ");
-  for (let key in matchKeyWords){
-    if (matchKeyWords[key].keyWords.includes(firstWord[0])){
-      category_id = matchKeyWords[key].categoryId
-      break;
-    }
+  let arraySentence= pinnedMessage.toLowerCase().split(" ")
+  for(let word of arraySentence){
+    if(matchKeyWords.shopping["keyWords"].includes(word)){
+  category_id = 104
   }
+  }
+ for(let word of arraySentence){
+    if(matchKeyWords.restaurants["keyWords"].includes(word)){
+  category_id = 102
+}
+ }
+ for(let word of arraySentence){
+    if(matchKeyWords.theatres["keyWords"].includes(word)){
+  category_id = 101
+}
+ }
+ for(let word of arraySentence){
+    if(matchKeyWords.museums["keyWords"].includes(word)){
+  category_id = 103
+}
+ }
+ for(let word of arraySentence){
+    if(matchKeyWords.tours["keyWords"].includes(word)){
+  category_id = 105
+}
+ }
   return category_id;
 }
 
-
-const apiMatchItem = async function(itemName, categoryId){
-  const itemNameWithoutKeyWords = itemName.split(" ").slice(1).join(" ")
-  const moviesCategoryId = 101;
-  const restaurantCategoryId = 102;
-  const bookCategoryId = 103;
-  const shoppingCategoryId = 104;
-  const otherCategoryId = 105;
-  if(categoryId === moviesCategoryId){
-// var options = {
-//   method: 'GET',
-//   url: 'https://imdb8.p.rapidapi.com/auto-complete',
-//   params: {q: 'game of thr'},
-//   headers: {
-//     'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-//     'x-rapidapi-key': '34db11ceb6mshd10fbcf29bddb52p1ee761jsnc0e28e6ec06f'
-//   }
-// }
-//   const result = await axios.request(options)
-//   console.log(result.data"result")
-//   return result
-// };
-
-    var options = {
-      method: 'GET',
-      url:`https://api.tvmaze.com/search/shows?q==${itemNameWithoutKeyWords}`
-  // headers: {
-  //   'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com',
-  //   'x-rapidapi-key': '461cc9cce5f14a006c2025e4317cb185'
-    }
-    const result = await axios.request(options)
-   const url= result.data[0].show.url
-    return url
-  };
-
-  if(categoryId === bookCategoryId){
-
-
-    var options = {
-      method: 'GET',
-      url: `https://www.googleapis.com/books/v1/volumes?q=${itemNameWithoutKeyWords}`,
-      params: {key: 'AIzaSyB_aDprVpCkqxUkMGOu-Vea93DznYeB5HI'},
-      headers: {
-        'x-rapidapi-host': 'google-books.p.rapidapi.com',
-        'x-rapidapi-key': '34db11ceb6mshd10fbcf29bddb52p1ee761jsnc0e28e6ec06f'
+const apiMatchMessage = async function(pinnedMessage, categoryId){
+  
+const gettingKeyTerm = function(){
+  const sentenceArray= pinnedMessage.split(" ")
+    sentenceArray.forEach((word, index)=>{
+      if(word==="called"){
+        sentenceArray.splice(0, index)
+        sentenceArray.shift()
       }
-    };
-    const response = await axios.request(options)
-    const bookUrl=response.data.items[0].volumeInfo.previewLink
-    return bookUrl;
-  };
+    })
+    return sentenceArray
+  }
 
-  if(categoryId === restaurantCategoryId){
+  if(categoryId === 102){
     var settings = {
-      "url": `https://api.yelp.com/v3/businesses/search?term=${itemNameWithoutKeyWords}&location=Kitchener&categories=restaurants`,
+      "url": `https://api.yelp.com/v3/businesses/search?term=${gettingKeyTerm}&location=Granada%20Spain&categories=restaurants`,
       "method": "GET",
       "timeout": 0,
       "headers": {
@@ -112,20 +92,30 @@ const apiMatchItem = async function(itemName, categoryId){
     const result = await  axios.request(settings)
     return result.data.businesses[0].url
   }
-  // if(categoryId === shoppingCategoryId){
-  //   var options = {
-  //     method: 'GET',
-  //     url: "https://www.amazon.com/s/?field-keywords=Harry+Potter",
-  //     "Keywords": "harry potter",
-  //     headers: {
-  //       'key': 'SeClR2tlYT3lP8zIxVPhM3osO539z1K96OvgIZpG'
-  //     }
-  //   };
+  if(categoryId === 103){
+    var settings = {
+      "url": `https://api.yelp.com/v3/businesses/search?term=${gettingKeyTerm}&location=Granada%20Spain&categories=museums`,
+      "method": "GET",
+      "timeout": 0,
+      "headers": {
+        "Authorization": "Bearer Rnsnn2hNsZYOAJJy2f_lHSg1QwFQ_eTg8UP2QOq4EwQ1MHxMOlm7ZJNhfGJxZL4BLvNwEHC8cdJI8rGR-g-Jii1_HPxHDZ75pcI_3GIJtRMYyBYiayVgrTlSyvOiYXYx"
+      }
+    }
+    const result = await  axios.request(settings)
+    return result.data.businesses[0].url
+  }
+  if(categoryId === 105){
+    var settings = {
+      "url": `https://api.yelp.com/v3/businesses/search?term=${gettingKeyTerm}&location=Granada%20Spain&categories=tours`,
+      "method": "GET",
+      "timeout": 0,
+      "headers": {
+        "Authorization": "Bearer Rnsnn2hNsZYOAJJy2f_lHSg1QwFQ_eTg8UP2QOq4EwQ1MHxMOlm7ZJNhfGJxZL4BLvNwEHC8cdJI8rGR-g-Jii1_HPxHDZ75pcI_3GIJtRMYyBYiayVgrTlSyvOiYXYx"
+      }
+    }
+    const result = await  axios.request(settings)
+    return result.data.businesses[0].url
+  }
 
-  //  const result = await axios.request(options)
-  //  //console.log((result.data), "result")
-  //  return result
 }
-// }
-//apiMatchItem("socks", 104);
-exports.apiMatchItem = apiMatchItem;
+exports.apiMatchMessage = apiMatchMessage;
