@@ -5,6 +5,10 @@ import { AppBar, Toolbar, Typography, InputBase, Box } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import useStyles from './style';
 import { Link } from 'react-router-dom';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 
 function Home() {
   const [autocomplete, setAutocomplete] = useState(null);
@@ -13,6 +17,14 @@ function Home() {
 
   const onLoad = (autoC) => setAutocomplete(autoC);
 
+  // const onPlaceChanged = () => {
+  //   const place = autocomplete.getPlace().types;
+
+  //   // const lng = autocomplete.getPlace().geometry.location.lng();
+  //   console.log('place', place);
+
+  //   setCoords({ place });
+  // };
   const onPlaceChanged = () => {
     const lat = autocomplete.getPlace().geometry.location.lat();
     const lng = autocomplete.getPlace().geometry.location.lng();
@@ -21,6 +33,19 @@ function Home() {
     setCoords({ lat, lng });
   };
 
+  const [address, setAddress] = useState('');
+
+  const handleChange = (address) => {
+    setAddress(address);
+  };
+
+  const handleSelect = (address) => {
+    setAddress(address);
+    geocodeByAddress(address)
+      .then((results) => getLatLng(results[0]))
+      .then((latLng) => console.log('Success', latLng))
+      .catch((error) => console.error('Error', error));
+  };
   return (
     <div className='container'>
       <div id='splash'>
@@ -81,24 +106,78 @@ function Home() {
         <h2>The sky is waiting for you.</h2>
         <form className='flex-form'>
           {/* <input type="search" placeholder="  Which Airport are you going to?" /> */}
-          <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
+          <PlacesAutocomplete
+            value={address}
+            onChange={handleChange}
+            onSelect={handleSelect}
+          >
+            {({
+              getInputProps,
+              suggestions,
+              getSuggestionItemProps,
+              loading,
+            }) => (
+              <div className='flex-form'>
+                <input
+                  value={address}
+                  {...getInputProps({
+                    placeholder: 'Choose your Airport ...',
+                    className: 'location-search',
+                  })}
+                />
+                <div className='autocomplete-dropdown-container'>
+                  {loading && <div>Loading...</div>}
+
+                  {suggestions
+                    .filter((suggestion) => {
+                      return suggestion.description.includes('Airport');
+                    })
+                    .map((suggestion) => {
+                      const className = suggestion.active
+                        ? 'suggestion-item--active'
+                        : 'suggestion-item';
+                      // inline style for demonstration purpose
+                      const style = suggestion.active
+                        ? {
+                            backgroundColor: '#ffffff',
+                            cursor: 'pointer',
+                            color: '#000000',
+                            padding: '1rem',
+                            borderRadius: '1rem',
+                            marginTop: '0.5rem',
+                          }
+                        : {
+                            backgroundColor: '#ffffff',
+                            cursor: 'pointer',
+                            color: '#000000',
+                            padding: '1rem',
+                            borderRadius: '1rem',
+                            marginTop: '0.5rem',
+                          };
+                      return (
+                        <div
+                          {...getSuggestionItemProps(suggestion, {
+                            className,
+                            style,
+                          })}
+                        >
+                          <span className='selections'>
+                            {suggestion.description}
+                          </span>
+                        </div>
+                      );
+                    })}
+                </div>
               </div>
-              <InputBase
-                placeholder='Search…'
-                classes={{ root: classes.inputRoot, input: classes.inputInput }}
-              />
-            </div>
-          </Autocomplete>
-          <Link to='/map'>
+            )}
+          </PlacesAutocomplete>
+          <Link to='/map' className='search-button-link'>
             <button type='submit' defaultValue='Search'>
               {' '}
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='16'
-                height='16'
+                height='40'
                 fill='currentColor'
                 class='bi bi-search'
                 viewBox='0 0 16 16'
