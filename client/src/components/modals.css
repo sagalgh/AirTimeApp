@@ -21,7 +21,7 @@ section {
   }
   
   .circle-small {
-    animation: bounceIn 1s forwards;
+    animation: bounceIn 3s forwards infinite;
     background: #7BB8FF;
     opacity: 0;
     height: 85%;

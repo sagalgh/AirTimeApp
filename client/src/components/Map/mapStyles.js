@@ -4,7 +4,7 @@ export default [
     elementType: 'all',
     stylers: [
       {
-        saturation: '32',
+        saturation: '-12',
       },
       {
         lightness: '-3',

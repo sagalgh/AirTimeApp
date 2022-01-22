@@ -30,6 +30,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
     <Card
       elevation={6}
       style={{
+        marginTop: '10px',
         borderRadius: 60,
         overflow: 'hidden',
         backgroundColor: '#FFF',
@@ -49,6 +50,8 @@ const PlaceDetails = ({ place, selected, refProp }) => {
           gutterBottom
           variant='h5'
           style={{
+            fontFamily: "Helvetica Neue",
+            fontWeight: 400,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -57,7 +60,8 @@ const PlaceDetails = ({ place, selected, refProp }) => {
           {place.name}
         </Typography>
         <Box display='flex' justifyContent='center' my={2}>
-          <Rating name='read-only' value={Number(place.rating)} readOnly />
+          <Rating name='read-only' value={Number(place.rating)} readOnly
+          style={{ color: '#fc7b54' }} />
         </Box>
 
         {place?.cuisine?.map(({ name }) => (
@@ -70,7 +74,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
             color='textSecondary'
             className={classes.subtitle}
           >
-            <LocationOnIcon />
+            <LocationOnIcon style={{ color: '#902bf5' }}/>
             {place.address}
           </Typography>
         )}
@@ -80,7 +84,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
             color='textSecondary'
             className={classes.spacing}
           >
-            <PhoneIcon /> {place.phone}
+            <PhoneIcon style={{ color: '#902bf5' }} /> {place.phone}
           </Typography>
         )}
       </CardContent>

@@ -10,12 +10,12 @@ const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
-  BorderRadius: '25px',
+  BorderRadius: '50px',
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
   border: '0px solid #000',
-  boxShadow: 24,
+  boxShadow: 'blur 20px', 
   p: 5,
 };
 
@@ -40,7 +40,7 @@ function BasicModal() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            This Restaurant only takes USD.
+            This restaurant only takes USD.
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           <section className="section1">

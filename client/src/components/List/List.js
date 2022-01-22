@@ -31,7 +31,10 @@ const List = ({
   }, [places]);
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container}
+    style={{ color: '#902bf5',
+    marginTop: 100,
+     }}>
       {isLoading ? (
         <div className={classes.loading}>
           <CircularProgress size='3rem' />
