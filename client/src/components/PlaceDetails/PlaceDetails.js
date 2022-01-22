@@ -1,6 +1,8 @@
+// import React from 'react';
 import React from 'react';
 import {
   Box,
+  Modal,
   Typography,
   Button,
   Card,
@@ -14,26 +16,27 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import Rating from '@material-ui/lab/Rating';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-
+import PaidIcon from '@mui/icons-material/Paid';
 import useStyles from './style';
-import RemoveRedEye from '@mui/icons-material/RemoveRedEye';
+import BasicModal from '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/components/modals.js'
+
 
 const PlaceDetails = ({ place, selected, refProp }) => {
   if (selected)
     refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   const classes = useStyles();
-
+ 
   return (
     <Card
       elevation={6}
       style={{
         borderRadius: 60,
         overflow: 'hidden',
-        backgroundColor: '#eb8560',
+        backgroundColor: '#FFF',
       }}
     >
       <CardMedia
-        style={{ height: 350 }}
+        style={{ height: 250}}
         image={
           place.photo
             ? place.photo.images.large.url
@@ -53,15 +56,12 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         >
           {place.name}
         </Typography>
-        <Box display='flex' justifyContent='space-between' my={2}>
+        <Box display='flex' justifyContent='center' my={2}>
           <Rating name='read-only' value={Number(place.rating)} readOnly />
-          <Typography component='legend'>
-            {place.num_reviews} review{place.num_reviews > 1 && 's'}
-          </Typography>
         </Box>
 
         {place?.cuisine?.map(({ name }) => (
-          <Chip key={name} size='small' label={name} className={classes.chip} />
+          <Chip display='flex' justifyContent='center' key={name} size='small' label={name} className={classes.chip} />
         ))}
         {place.address && (
           <Typography
@@ -86,7 +86,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
       </CardContent>
       <CardActions
         style={{
-          paddingLeft: '150px',
+          paddingLeft: '105px',
           paddingRight: '120px',
         }}
       >
@@ -95,18 +95,21 @@ const PlaceDetails = ({ place, selected, refProp }) => {
           color='primary'
           onClick={() => window.open(place.web_url, '_blank')}
         >
-          <RemoveRedEye style={{ color: 'grey' }} />
+          <RemoveRedEyeIcon style={{ color: '#fc7b54' }} />
         </Button>
         <Button
           size='small'
           color='primary'
           onClick={() => window.open(place.website, '_blank')}
         >
-          <RestaurantMenuIcon style={{ color: 'grey' }} />
+          <RestaurantMenuIcon style={{ color: '#902bf5' }} />
         </Button>
+        <BasicModal/>
+        
       </CardActions>
     </Card>
   );
 };
+
 
 export default PlaceDetails;
