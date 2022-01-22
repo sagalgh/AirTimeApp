@@ -77,7 +77,7 @@ const App = () => {
             >
               <CardMedia style={{ height: 350 }}>
                 <ScrollIntoView>
-                  <div>
+                  <div >
                     {direction2Location.map((step) => {
                       return (
                         <div

@@ -132,9 +132,17 @@ const Map = ({
         handleSubmit={handleSubmit}
       />
 
-      <div className={classes.mapContainer}>
+      <div
+        className={classes.mapContainer}
+        style={{
+          borderRadius: 60,
+          overflow: 'hidden',
+        }}
+      >
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyD_SFCAXBuXnQua8ixjsfOrnaaF2QwTl4I' }}
+          bootstrapURLKeys={{
+            key: 'AIzaSyD_SFCAXBuXnQua8ixjsfOrnaaF2QwTl4I',
+          }}
           defaultCenter={coords}
           center={mapCenter}
           defaultZoom={17}

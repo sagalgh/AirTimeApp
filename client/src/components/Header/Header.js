@@ -19,7 +19,7 @@ const Header = ({
       position='static'
       className={classes.appbar}
       style={{
-        background: '#3F2534',
+        background: '#ffffff',
         borderStyle: '1rem solid;',
         opacity: 2.5,
         marginRight: 20,
