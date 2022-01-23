@@ -82,8 +82,8 @@ const Map = ({
   const [startLatLngSubmit, setStartLatLngSubmit] = useState({});
   const [endLatLngSubmit, setEndLatLngSubmit] = useState({});
   const [mapCenter, updateMapCenter] = useState({
-    lat: 33.9416,
-    lng: -118.4085,
+    lat: 33.94407320929345,
+    lng: -118.40405015962253,
   });
 
   const [endPoint, setEndPoint] = useState(null);
@@ -135,7 +135,9 @@ const Map = ({
       <div
         className={classes.mapContainer}
         style={{
-          borderRadius: 60,
+          borderRadius: 40,
+          borderTopLeftRadius: 10,
+          borderTopRightRadius: 10,
           overflow: 'hidden',
         }}
       >

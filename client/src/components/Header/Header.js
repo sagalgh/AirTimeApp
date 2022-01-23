@@ -25,8 +25,12 @@ const Header = ({
         marginRight: 20,
         width: '92%',
         borderRadius: '25px',
-        marginBottom: '25px',
         opacity: 2.5,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        marginBottom: 8,
       }}
     >
       <Toolbar className={classes.toolbar}>

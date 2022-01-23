@@ -19,8 +19,7 @@ import useStyles from './style';
 import RemoveRedEye from '@mui/icons-material/RemoveRedEye';
 
 const PlaceDetails = ({ place, selected, refProp }) => {
-  if (selected)
-    refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (selected) refProp?.current?.scrollIntoView({ behavior: 'smooth' });
   const classes = useStyles();
 
   return (
