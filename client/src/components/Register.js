@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { borderRadius } from '@mui/system';
+import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/register.css';
 
 
 
@@ -30,19 +31,19 @@ export default function Register() {
   };
 
   return (
+    <div className='registration'>
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container className = 'registration' component="main" maxWidth="sm">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 6,
-            overflow: 'hidden',
+            marginTop: 0,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             backgroundColor: '#FFF',
             borderRadius: '25px',
-            padding: '10px'
+            padding: '40px'
           }}
         >
           <Avatar sx={{ marginTop: '20px', bgcolor: 'secondary.main' }}>
@@ -121,5 +122,6 @@ export default function Register() {
         </Box>
       </Container>
     </ThemeProvider>
+    </div>
   );
 }

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import "../css/chatPage.css";
 import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/chathomepage.scss';
 import Typography from '@mui/material/Typography';
+import { typography } from "@mui/system";
 
 
  const ChatPage = (props) => {
@@ -18,28 +19,54 @@ import Typography from '@mui/material/Typography';
   }
 
     return (
+        <div className ='chatpagebg'>
         <div className="chatpage">
             <div className="">
-                <div className="chatpage-header" style={{verticalAlign:'center'}}>
+                <div className="chatpage-header">
                     <div className="titleText">
                         <div className="row center">
-                            <h1> Welcome to AirTime Connect!</h1>
+                        <Typography component='h1' variant='h2' 
+        style={{ color: '#FFF',
+                 display: 'flex',
+                 justifyContent: 'center',
+                 marginTop: '-60px'
+                  }}>
+              
+              Welcome to AirTime Connect!
+            </Typography>
                         </div>
                         <div className="row center">
-                            <h3> Join chat rooms, and talk to other travelers.</h3>
+                        <Typography component='h1' variant='h4' 
+        style={{ color: '#FFF',
+                 display: 'flex',
+                 justifyContent: 'center'
+                  }}>
+              
+              Join chat rooms, and talk to other travelers.
+            </Typography>
                         </div>
                     </div>
                     <form onSubmit={joinRoom}>
-                        <div className="offset-2 col-8 ">
-                            <div className="input-group flex-nowrap">
+                        <div className="center form-inline">
+                            <div className="input-group">
                                 <div className="input-group-prepend">
                                     <label>
-                                        <span className="input-group-text">
+                                        <span className="input-group-text" style={{
+                                            marginLeft: '-70px',
+                                        borderTopRightRadius: '0px',
+                                        borderBottomRadius:'0px',
+                                        borderTopLeftRadius: '20px',
+                                        borderBottomLeftRadius:'20px'
+                                        }}>
                                             Username:
                                         </span>
                                     </label>
                                 </div>
                                 <input
+                                style={{borderRadius:'20px',
+                                        borderTopLeftRadius: '0px',
+                                        borderBottomLeftRadius:'0px',
+                                        width: '240px'}}
                                     type="text"
                                     className="form-control"
                                     value={username}
@@ -54,12 +81,20 @@ import Typography from '@mui/material/Typography';
                             <div className="input-group">
                                 <div className="input-group-prepend">
                                     <label>
-                                        <span className="input-group-text">
+                                        <span className="input-group-text" style={{
+                                        borderTopRightRadius: '0px',
+                                        borderBottomRadius:'0px',
+                                        borderTopLeftRadius: '20px',
+                                        borderBottomLeftRadius:'20px'
+                                        }}>
                                             Flight Number:
                                         </span>
                                     </label>
                                 </div>
                                 <input
+                                style={{borderRadius:'20px',
+                                        borderTopLeftRadius: '0px',
+                                        borderBottomLeftRadius:'0px'}}
                                     type="text"
                                     className="form-control"
                                     placeholder="Flight number"
@@ -69,6 +104,12 @@ import Typography from '@mui/material/Typography';
                                 />
                                 <div className="input-group-append">
                                     <button
+                                    style={{
+                                        marginLeft: '10px',
+                                        border: 0,
+                                        borderRadius:'20px',
+                                        backgroundColor: '#912BF6',
+                                        float: 'right'}}
                                         type="submit"
                                         className="btn btn-primary"
                                     >
@@ -80,6 +121,7 @@ import Typography from '@mui/material/Typography';
                     </form>
                     <br />
                 </div>
+                
                 <div className="chatpage-bottom" style={{backgroundColor: '#A6CDE2'}}>
                 <div className="progress">
                 <Typography>
@@ -119,7 +161,7 @@ import Typography from '@mui/material/Typography';
               
               Create a Username.
             </Typography>
-              <p>You can use any username you want with numbers and letters. Be ask creative as you like and feel free to use a nickname!</p>
+              <h5>You can use any username you want with numbers and letters. Be ask creative as you like and feel free to use a nickname!</h5>
             </div>
             <div className="tab tab-1">
             <Typography component='h1' variant='h2' 
@@ -133,7 +175,7 @@ import Typography from '@mui/material/Typography';
               
               Enter Your Flight #.
             </Typography>
-              <p>Please enter the letters and the numbers on your lifht number. The format is usually 2 letters and 3-4 numbers. Check your boarding pass if you're unsure!</p>
+              <h5>Please enter the letters and the numbers on your flight number. The format is usually 2 letters and 3-4 numbers. Check your boarding pass if you're unsure!</h5>
             </div>
             <div className="tab tab-2">
             <Typography component='h1' variant='h2' 
@@ -147,7 +189,7 @@ import Typography from '@mui/material/Typography';
               
               Enter The Chat Room.
             </Typography>
-              <p>You will be placed with people on your flight. You cannot join any other chat rooms, but feel free to get to know other adventurers. Who knows, maybe you'll make a friend! </p>
+             <h5>You will be placed with people on your flight. You cannot join any other chat rooms, but feel free to get to know other adventurers. Who knows, maybe you'll make a friend! </h5>
             </div>
             <div className="tab tab-3">
             <Typography component='h1' variant='h2' 
@@ -161,7 +203,7 @@ import Typography from '@mui/material/Typography';
               
               Log Out.
             </Typography>
-              <p>Self-Explanatory. If you do logout, you won't lose your precious pins! Log back in to see all the cool places you want to travel to in the future.</p>
+              <h5>Self-Explanatory. If you do logout, you won't lose your precious pins! Log back in to see all the cool places you want to travel to in the future.</h5>
             </div>
             <div className="tab tab-4">
             <Typography component='h1' variant='h2' 
@@ -175,7 +217,7 @@ import Typography from '@mui/material/Typography';
               
               Have Fun!
             </Typography>
-              <p>.....And be safe. Please do not share details of your trip such as hotels, hostels, and AirBnb's with strangers! You can always pull people to the side to chat 🤪 </p>
+              <h5>.....And be safe. Please do not share details of your trip such as hotels, hostels, and AirBnb's with strangers! You can always pull people to the side to chat 🤪 </h5>
             </div>
           </div>
         </div>
@@ -184,8 +226,9 @@ import Typography from '@mui/material/Typography';
                     </div>
             </div>
         </div>
+        </div>
     );
 };
 
-export default ChatPage
+export default ChatPage;
 
