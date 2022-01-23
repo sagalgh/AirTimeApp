@@ -5,7 +5,21 @@
   -moz-box-sizing: inherit;
   box-sizing: inherit;
   
-  
+}
+
+body  {
+  height: 100%;
+}
+body  {
+  font-family: 'Helvetica Neue', sans-serif;
+
+  width: 100%;
+  margin: 0;
+  background: url('https://github.com/sagalafrah/porjectphotos/blob/main/agnis-leznins-Lf6iovoj-Qg-unsplash.jpg?raw=true') no-repeat center center fixed;
+  background-size: cover;
+  color: #FFF;
+  font-weight: 700;
+  overflow: auto;
 }
 
 ::-webkit-input-placeholder {
@@ -24,20 +38,11 @@ html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    overflow-y: scroll;
   }
   
 
-body  {
-  font-family: 'Helvetica Neue', sans-serif;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  background: url('https://github.com/sagalafrah/porjectphotos/blob/main/agnis-leznins-Lf6iovoj-Qg-unsplash.jpg?raw=true') no-repeat center center fixed;
-  background-size: cover;
-  color: #FFF;
-  font-weight: 700;
-  overflow: hidden;
-}
+
 
   
   body .welcome {
