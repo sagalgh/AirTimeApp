@@ -31,6 +31,11 @@ function Navigation() {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink className="nav-link" to="/pinnedchat">
+                  Recommendations
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink className="nav-link" to="/tsa">
                   Checkpoints
                 </NavLink>

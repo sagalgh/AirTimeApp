@@ -7,7 +7,8 @@ import {
   USER_JOINED,
   IS_TYPING,
   STOPPED_TYPING,
-  PINNED_MSG
+  PINNED_MSG,
+  LOAD_PINNED_MSGS
 } from "./actions";
 const INITIAL_STATE = {
   ownUser: {},
@@ -61,10 +62,14 @@ function rootReducer(state = INITIAL_STATE, action) {
       case RECEIVED_MSG:
           return { ...state, messages: [...state.messages, action.payload] };
       case PINNED_MSG:
-        console.log("I AM HERE", action.payload)
+        console.log("I AM HERE", action.payload.url)
           return {
               ...state, pinnedMessages: [...state.pinnedMessages, action.payload]
           }
+        case LOAD_PINNED_MSGS:
+            return {
+                ...state, pinnedMessages: action.payload 
+            }
       default:
           return state;
   }
