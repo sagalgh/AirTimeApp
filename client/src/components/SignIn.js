@@ -80,7 +80,7 @@ export default function SignIn() {
         <Typography component='h1' variant='h2' 
         style={{ color: '#FFF',
                  opacity: 0.9,
-                 fontWeight: 200,
+                 fontWeight: 400,
                  display: 'flex',
                  justifyContent: 'center'
                   }}>
@@ -136,6 +136,7 @@ export default function SignIn() {
               />
               <Button
                 type='submit'
+                href='/'
                 fullWidth
                 variant='contained'
                 sx={{ mt: 3, mb: 2 }}
