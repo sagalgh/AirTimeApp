@@ -20,7 +20,7 @@ import Typography from '@mui/material/Typography';
     return (
         <div className="chatpage">
             <div className="">
-                <div className="chatpage-header" style={{verticalAlign:'center'}}>
+                <div className="chatpage-header">
                     <div className="titleText">
                         <div className="row center">
                             <h1> Welcome to AirTime Connect!</h1>
@@ -30,16 +30,26 @@ import Typography from '@mui/material/Typography';
                         </div>
                     </div>
                     <form onSubmit={joinRoom}>
-                        <div className="offset-2 col-8 ">
-                            <div className="input-group flex-nowrap">
+                        <div className="center form-inline">
+                            <div className="input-group">
                                 <div className="input-group-prepend">
                                     <label>
-                                        <span className="input-group-text">
+                                        <span className="input-group-text" style={{
+                                            marginLeft: '-70px',
+                                        borderTopRightRadius: '0px',
+                                        borderBottomRadius:'0px',
+                                        borderTopLeftRadius: '20px',
+                                        borderBottomLeftRadius:'20px'
+                                        }}>
                                             Username:
                                         </span>
                                     </label>
                                 </div>
                                 <input
+                                style={{borderRadius:'20px',
+                                        borderTopLeftRadius: '0px',
+                                        borderBottomLeftRadius:'0px',
+                                        width: '240px'}}
                                     type="text"
                                     className="form-control"
                                     value={username}
@@ -54,12 +64,20 @@ import Typography from '@mui/material/Typography';
                             <div className="input-group">
                                 <div className="input-group-prepend">
                                     <label>
-                                        <span className="input-group-text">
+                                        <span className="input-group-text" style={{
+                                        borderTopRightRadius: '0px',
+                                        borderBottomRadius:'0px',
+                                        borderTopLeftRadius: '20px',
+                                        borderBottomLeftRadius:'20px'
+                                        }}>
                                             Flight Number:
                                         </span>
                                     </label>
                                 </div>
                                 <input
+                                style={{borderRadius:'20px',
+                                        borderTopLeftRadius: '0px',
+                                        borderBottomLeftRadius:'0px'}}
                                     type="text"
                                     className="form-control"
                                     placeholder="Flight number"
@@ -69,6 +87,12 @@ import Typography from '@mui/material/Typography';
                                 />
                                 <div className="input-group-append">
                                     <button
+                                    style={{
+                                        marginLeft: '10px',
+                                        border: 0,
+                                        borderRadius:'20px',
+                                        backgroundColor: '#912BF6',
+                                        float: 'right'}}
                                         type="submit"
                                         className="btn btn-primary"
                                     >
@@ -80,6 +104,7 @@ import Typography from '@mui/material/Typography';
                     </form>
                     <br />
                 </div>
+                
                 <div className="chatpage-bottom" style={{backgroundColor: '#A6CDE2'}}>
                 <div className="progress">
                 <Typography>
