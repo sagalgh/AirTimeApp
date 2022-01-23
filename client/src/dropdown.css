@@ -1,0 +1,133 @@
+
+  
+  ul {
+    list-style: none;
+  }
+  
+  
+  
+  .droppy {
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    position: absolute;
+  
+  }
+  .droppy li:hover {
+    background: #E5CDCD;
+    border-radius: 25px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    
+  }
+  .droppy > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    background: #EAD7D7;
+    border-radius: 25px;
+    color: #1C2E4A;
+  }
+  .droppy > ul > li {
+    float: left;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  ul.drop-menu {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: 100%;
+    padding: 0;
+  }
+  ul.drop-menu li {
+    background: #DFC3C3;
+  }
+  ul.drop-menu li:hover {
+    background: #DAB9B9;
+  }
+  ul.drop-menu li:first-child {
+    border-radius: 2px 2px 0 0;
+  }
+  ul.drop-menu li:last-child {
+    border-radius: 0 0 5px 5px;
+  }
+  
+  ul.drop-menu li {
+    display: none;
+  }
+  
+  li:hover > ul.drop-menu li {
+    display: block;
+  }
+  
+  
+  li:hover > ul.drop-menu.menu-2 {
+    perspective: 1000px;
+  }
+  li:hover > ul.drop-menu.menu-2 li {
+    transform-origin: top center;
+    opacity: 0;
+  }
+  li:hover > ul.drop-menu.menu-2 li:nth-child(1) {
+    animation-name: menu-2;
+    animation-duration: 400ms;
+    animation-delay: -150ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+  li:hover > ul.drop-menu.menu-2 li:nth-child(2) {
+    animation-name: menu-2;
+    animation-duration: 400ms;
+    animation-delay: 0ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+  li:hover > ul.drop-menu.menu-2 li:nth-child(3) {
+    animation-name: menu-2;
+    animation-duration: 400ms;
+    animation-delay: 150ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+  li:hover > ul.drop-menu.menu-2 li:nth-child(4) {
+    animation-name: menu-2;
+    animation-duration: 400ms;
+    animation-delay: 300ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+  li:hover > ul.drop-menu.menu-2 li:nth-child(5) {
+    animation-name: menu-2;
+    animation-duration: 400ms;
+    animation-delay: 450ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+  li:hover > ul.drop-menu.menu-2 li:nth-child(6) {
+    animation-name: menu-2;
+    animation-duration: 400ms;
+    animation-delay: 600ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+  @keyframes menu-2 {
+    0% {
+      opacity: 0;
+      transform: rotateX(-90deg);
+    }
+    50% {
+      transform: rotateX(-20deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateX(0deg);
+    }
+  }
+  

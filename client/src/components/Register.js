@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { borderRadius } from '@mui/system';
 
 
 
@@ -34,20 +35,24 @@ export default function Register() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 6,
+            overflow: 'hidden',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            backgroundColor: '#FFF',
+            borderRadius: '25px',
+            padding: '10px'
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ marginTop: '20px', bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 2}}>
+            <Grid container spacing={8}>
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
@@ -101,7 +106,7 @@ export default function Register() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, borderRadius: '25px', backgroundColor: '#912BF6' }}
             >
               Sign Up
             </Button>

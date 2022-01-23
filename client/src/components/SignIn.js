@@ -12,7 +12,8 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import '../SignIn.css';
+import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/SignIn.css';
+import { typography } from '@mui/system';
 
 const theme = createTheme();
 
@@ -29,7 +30,7 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component='main' sx={{ height: '100vh' }}>
+      <Grid container component='main' sx={{ height: '200vh' }}>
         <CssBaseline />
         <Grid
           item
@@ -37,27 +38,70 @@ export default function SignIn() {
           sm={4}
           md={7}
           sx={{
-            // backgroundImage: 'url(https://source.unsplash.com/random)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: '#912BF6',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
-        />
+          
+        >            
+<div className="planecontainer">
+        <div id="main-window" className="window-wrapper window">
+          <div className="window-view">
+            <div className="window-border window">
+              <div className="window-border-inside window">
+                <div className="sky window">
+                  <div className="moon">
+                  </div>
+                  <div className="cloud-wrapper">
+                    <div className="cloud">
+                      <div className="cloud-part" />
+                    </div>
+                    <div className="cloud">
+                      <div className="cloud-part" />
+                    </div>
+                    <div className="cloud">
+                      <div className="cloud-part" />
+                    </div>
+                    <div className="stars">
+                      <div className="star" />
+                      <div className="star" />
+                      <div className="star" />
+                      <div className="star" />
+                      <div className="star" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <Typography component='h1' variant='h2' 
+        style={{ color: '#FFF',
+                 opacity: 0.9,
+                 fontWeight: 400,
+                 display: 'flex',
+                 justifyContent: 'center'
+                  }}>
+              
+              Ready for take-off?
+            </Typography> </Grid>
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
               my: 8,
-              mx: 4,
+              mx: 8,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ m: 5, bgcolor: 'secondary.main', width: 60, height: 60}}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component='h1' variant='h5'>
+            <Typography component='h1' variant='h5' style={{ color: '#000' }}>
+              
               Sign in
             </Typography>
             <Box
@@ -92,6 +136,7 @@ export default function SignIn() {
               />
               <Button
                 type='submit'
+                href='/'
                 fullWidth
                 variant='contained'
                 sx={{ mt: 3, mb: 2 }}
