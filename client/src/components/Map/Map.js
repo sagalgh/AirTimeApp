@@ -139,6 +139,8 @@ const Map = ({
           borderTopLeftRadius: 10,
           borderTopRightRadius: 10,
           overflow: 'hidden',
+          borderTopLeftRadius: 0,
+          borderTopRightRadius: 0,
         }}
       >
         <GoogleMapReact
@@ -196,7 +198,7 @@ const Map = ({
                     className={classes.pointer}
                     src={
                       place.photo
-                        ? place.photo.images.large.url
+                        ? place.photo.images.medium.url
                         : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'
                     }
                   />

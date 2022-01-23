@@ -2,7 +2,7 @@ import { alpha, makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   paper: {
-    padding: '5px',
+    padding: '20px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -12,9 +12,10 @@ export default makeStyles((theme) => ({
   },
   mapContainer: {
     height: '78vh',
-    width: '60vw',
+    width: '57.3vw',
     marginRight: '0px',
     marginLeft: '22px',
+    border: '16px solid #1C2E4A',
 
     boxShadow: '-2px 2px 16px 2px rgba(0,0,0,0.25)',
     [theme.breakpoints.down('sm')]: {
@@ -81,7 +82,11 @@ export default makeStyles((theme) => ({
 
   appbar: {
     marginTop: '20px',
-    width: '60vw',
+    width: '50vw',
     marginLeft: '22px',
+    // borderTopLeftRadius: 25,
+    // borderTopRightRadius: 25,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
   },
 }));

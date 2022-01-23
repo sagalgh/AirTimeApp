@@ -6,6 +6,7 @@ import List from './components/List/List';
 import Map from './components/Map/Map';
 import useStyles from '../src/components/Map/styles';
 import ScrollIntoView from 'react-scroll-into-view';
+import './scroll.css';
 
 const App = () => {
   const classes = useStyles();
@@ -56,8 +57,9 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className='cover'>
       <CssBaseline />
+
       <Grid container spacing={3} style={{ width: '100%' }}>
         <Grid item xs={12} md={4}>
           <List
@@ -71,13 +73,10 @@ const App = () => {
           />
 
           {direction2Location.length > 1 && (
-            <Card
-              elevation={6}
-              style={{ marginLeft: 25, maxHeight: 200, overflow: 'auto' }}
-            >
+            <Card elevation={6} style={{ marginLeft: 25, maxHeight: 200 }}>
               <CardMedia style={{ height: 350 }}>
                 <ScrollIntoView>
-                  <div >
+                  <div>
                     {direction2Location.map((step) => {
                       return (
                         <div
@@ -110,7 +109,7 @@ const App = () => {
           />
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 
