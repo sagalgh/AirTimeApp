@@ -31,7 +31,10 @@ const List = ({
   }, [places]);
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container}
+    style={{ color: '#902bf5',
+    marginTop: 10,
+     }}>
       {isLoading ? (
         <div className={classes.loading}>
           <CircularProgress size='3rem' />
@@ -40,7 +43,7 @@ const List = ({
         <>
           <FormControl className={classes.formControl}>
             <InputLabel className={classes.input} id='type'>
-              Type
+              What are you looking for?
             </InputLabel>
             <Select
               className={classes.input}
@@ -49,6 +52,8 @@ const List = ({
               onChange={(e) => setType(e.target.value)}
             >
               <MenuItem value='restaurants'>Restaurants</MenuItem>
+              <MenuItem value='Retail'>Retail</MenuItem>
+              <MenuItem value='Lounges'>Lounges</MenuItem>
             </Select>
           </FormControl>
 

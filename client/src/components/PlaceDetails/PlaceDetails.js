@@ -1,6 +1,8 @@
+// import React from 'react';
 import React from 'react';
 import {
   Box,
+  Modal,
   Typography,
   Button,
   Card,
@@ -14,26 +16,29 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import Rating from '@material-ui/lab/Rating';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-
+import PaidIcon from '@mui/icons-material/Paid';
 import useStyles from './style';
-import RemoveRedEye from '@mui/icons-material/RemoveRedEye';
+import BasicModal from '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/components/modals.js'
+import { white } from 'chalk';
+
 
 const PlaceDetails = ({ place, selected, refProp }) => {
-  if (selected)
-    refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (selected) refProp?.current?.scrollIntoView({ behavior: 'smooth' });
   const classes = useStyles();
-
+ 
   return (
     <Card
       elevation={6}
       style={{
+        color: 'white',
+        marginTop: '10px',
         borderRadius: 60,
         overflow: 'hidden',
-        backgroundColor: '#eb8560',
+        backgroundColor: '#1C2E4A',
       }}
     >
       <CardMedia
-        style={{ height: 350 }}
+        style={{ height: 250}}
         image={
           place.photo
             ? place.photo.images.large.url
@@ -46,6 +51,8 @@ const PlaceDetails = ({ place, selected, refProp }) => {
           gutterBottom
           variant='h5'
           style={{
+            fontFamily: "Helvetica Neue",
+            fontWeight: 400,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -53,40 +60,39 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         >
           {place.name}
         </Typography>
-        <Box display='flex' justifyContent='space-between' my={2}>
-          <Rating name='read-only' value={Number(place.rating)} readOnly />
-          <Typography component='legend'>
-            {place.num_reviews} review{place.num_reviews > 1 && 's'}
-          </Typography>
+        <Box display='flex' justifyContent='center' my={2}>
+          <Rating name='read-only' value={Number(place.rating)} readOnly
+          style={{ color: '#fc7b54' }} />
         </Box>
 
         {place?.cuisine?.map(({ name }) => (
-          <Chip key={name} size='small' label={name} className={classes.chip} />
+          <Chip display='flex' justifyContent='center' key={name} size='small' label={name} className={classes.chip} style={{backgroundColor: '#EAD7D7',
+          color: '#000'}}/>
         ))}
         {place.address && (
           <Typography
             gutterBottom
             variant='body2'
-            color='textSecondary'
+            color='white'
             className={classes.subtitle}
           >
-            <LocationOnIcon />
+            <LocationOnIcon style={{ color: '#902bf5' }}/>
             {place.address}
           </Typography>
         )}
         {place.phone && (
           <Typography
             variant='body2'
-            color='textSecondary'
+            color='white'
             className={classes.spacing}
           >
-            <PhoneIcon /> {place.phone}
+            <PhoneIcon style={{ color: '#902bf5' }} /> {place.phone}
           </Typography>
         )}
       </CardContent>
       <CardActions
         style={{
-          paddingLeft: '150px',
+          paddingLeft: '105px',
           paddingRight: '120px',
         }}
       >
@@ -95,18 +101,21 @@ const PlaceDetails = ({ place, selected, refProp }) => {
           color='primary'
           onClick={() => window.open(place.web_url, '_blank')}
         >
-          <RemoveRedEye style={{ color: 'grey' }} />
+          <RemoveRedEyeIcon style={{ color: '#fc7b54' }} />
         </Button>
         <Button
           size='small'
           color='primary'
           onClick={() => window.open(place.website, '_blank')}
         >
-          <RestaurantMenuIcon style={{ color: 'grey' }} />
+          <RestaurantMenuIcon style={{ color: '#902bf5' }} />
         </Button>
+        <BasicModal/>
+        
       </CardActions>
     </Card>
   );
 };
+
 
 export default PlaceDetails;

@@ -88,7 +88,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className='cover'>
+        <div className='covertwo'>
           <h1>
             <svg
               className='icon'
