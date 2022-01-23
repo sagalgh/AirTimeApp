@@ -7,9 +7,15 @@ import {
   FormControl,
   Select,
 } from '@material-ui/core';
-
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import WeekendIcon from '@mui/icons-material/Weekend';
+import LocalAtmIcon from '@mui/icons-material/LocalAtm';
+import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
+import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 import useStyles from '../List/style.js';
+import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/dropdown.css';
 
 const List = ({
   places,
@@ -41,21 +47,21 @@ const List = ({
         </div>
       ) : (
         <>
-          <FormControl className={classes.formControl}>
-            <InputLabel className={classes.input} id='type'>
-              What are you looking for?
-            </InputLabel>
-            <Select
-              className={classes.input}
-              id='type'
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-            >
-              <MenuItem value='restaurants'>Restaurants</MenuItem>
-              <MenuItem value='Retail'>Retail</MenuItem>
-              <MenuItem value='Lounges'>Lounges</MenuItem>
-            </Select>
-          </FormControl>
+        <div class="container">
+  <div class="droppy">
+        <ul>
+		<li> Restaurants <RestaurantIcon/>
+    <ul class="drop-menu menu-2">
+				<li>Retail <LocalOfferIcon/></li>
+				<li>Lounges<WeekendIcon/> </li>
+				<li>ATM/Exchange <LocalAtmIcon/></li>
+				<li>Baby-Changing <ChildFriendlyIcon/> </li>
+				<li>Prayer Rooms <LocalLibraryIcon/> </li>
+			</ul>
+		</li>
+	</ul>
+  </div>
+  </div>
 
           <Grid container spacing={3} className={classes.list}>
             {places?.map((place, i) => (
