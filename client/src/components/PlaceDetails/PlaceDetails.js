@@ -18,13 +18,19 @@ import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import PaidIcon from '@mui/icons-material/Paid';
 import useStyles from './style';
+<<<<<<< HEAD
 import BasicModal from '../modals';
 import { white } from 'chalk';
+=======
+import BasicModal from '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/components/modals.js'
+import { white } from 'chalk';
+
+>>>>>>> 258abcc24d21a85530da8b03b6a3bfd99464e2f2
 
 const PlaceDetails = ({ place, selected, refProp }) => {
   if (selected) refProp?.current?.scrollIntoView({ behavior: 'smooth' });
   const classes = useStyles();
-
+ 
   return (
     <Card
       elevation={6}
@@ -37,7 +43,11 @@ const PlaceDetails = ({ place, selected, refProp }) => {
       }}
     >
       <CardMedia
+<<<<<<< HEAD
         style={{ height: 250 }}
+=======
+        style={{ height: 250}}
+>>>>>>> 258abcc24d21a85530da8b03b6a3bfd99464e2f2
         image={
           place.photo
             ? place.photo.images.large.url
@@ -50,7 +60,11 @@ const PlaceDetails = ({ place, selected, refProp }) => {
           gutterBottom
           variant='h5'
           style={{
+<<<<<<< HEAD
             fontFamily: 'Helvetica Neue',
+=======
+            fontFamily: "Helvetica Neue",
+>>>>>>> 258abcc24d21a85530da8b03b6a3bfd99464e2f2
             fontWeight: 400,
             display: 'flex',
             alignItems: 'center',
@@ -60,6 +74,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
           {place.name}
         </Typography>
         <Box display='flex' justifyContent='center' my={2}>
+<<<<<<< HEAD
           <Rating
             name='read-only'
             value={Number(place.rating)}
@@ -78,6 +93,15 @@ const PlaceDetails = ({ place, selected, refProp }) => {
             className={classes.chip}
             style={{ backgroundColor: '#EAD7D7', color: '#000' }}
           />
+=======
+          <Rating name='read-only' value={Number(place.rating)} readOnly
+          style={{ color: '#fc7b54' }} />
+        </Box>
+
+        {place?.cuisine?.map(({ name }) => (
+          <Chip display='flex' justifyContent='center' key={name} size='small' label={name} className={classes.chip} style={{backgroundColor: '#EAD7D7',
+          color: '#000'}}/>
+>>>>>>> 258abcc24d21a85530da8b03b6a3bfd99464e2f2
         ))}
         {place.address && (
           <Typography
@@ -86,12 +110,24 @@ const PlaceDetails = ({ place, selected, refProp }) => {
             color='white'
             className={classes.subtitle}
           >
+<<<<<<< HEAD
             <LocationOnIcon style={{ color: '#902bf5' }} />
+=======
+            <LocationOnIcon style={{ color: '#902bf5' }}/>
+>>>>>>> 258abcc24d21a85530da8b03b6a3bfd99464e2f2
             {place.address}
           </Typography>
         )}
         {place.phone && (
+<<<<<<< HEAD
           <Typography variant='body2' color='white' className={classes.spacing}>
+=======
+          <Typography
+            variant='body2'
+            color='white'
+            className={classes.spacing}
+          >
+>>>>>>> 258abcc24d21a85530da8b03b6a3bfd99464e2f2
             <PhoneIcon style={{ color: '#902bf5' }} /> {place.phone}
           </Typography>
         )}
@@ -116,10 +152,16 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         >
           <RestaurantMenuIcon style={{ color: '#902bf5' }} />
         </Button>
+<<<<<<< HEAD
         <BasicModal />
+=======
+        <BasicModal/>
+        
+>>>>>>> 258abcc24d21a85530da8b03b6a3bfd99464e2f2
       </CardActions>
     </Card>
   );
 };
+
 
 export default PlaceDetails;
