@@ -21,18 +21,20 @@ const Header = ({
       position='static'
       className={classes.appbar}
       style={{
-        background: '#FFF',
+        background: '#1C2E4A',
         opacity: 2.5,
         marginRight: 20,
-        marginTop: 150,
-        width: '92%',
+        marginTop: 10,
+        width: '57.3vw',
         borderRadius: '25px',
-        marginBottom: '25px',
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
+        marginBottom: 0,
         opacity: 2.5,
       }}
     >
       <Toolbar className={classes.toolbar}>
-        <Box display='flex'>
+        <Box display='flex' >
           <Typography variant='h6' className={classes.title}></Typography>
           <Autocomplete
             onLoad={handleChangeStart}
@@ -41,16 +43,17 @@ const Header = ({
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon 
-                  style={{ color: '#31Bacd' }}
+                  style={{ color: '#EAD7D7' }}
                 />
               </div>
               <InputBase
                 placeholder='From'
                 classes={{ root: classes.inputRoot, input: classes.inputInput }}
                 style={{
-        border: '2px solid #31Bacd',
+
         width: 280,
-        borderRadius: '10px',
+        color: 'white',
+
         opacity: 2.5,
         paddingLeft: "50px"
       }}
@@ -58,8 +61,8 @@ const Header = ({
             </div>
           </Autocomplete>
           <DirectionsWalkIcon style=
-          {{ color: '#31Bacd',
-          alignItems: 'bottom'}}
+          {{ color: '#EAD7D7',
+          marginTop: 7.3}}
           />
           <Autocomplete
             onLoad={handleChangeEnd}
@@ -68,16 +71,15 @@ const Header = ({
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon 
-                  style={{ color: '#31Bacd' }}
+                  style={{ color: '#EAD7D7' }}
                 />
               </div>
               <InputBase
                 placeholder='To'
                 classes={{ root: classes.inputRoot, input: classes.inputInput }}
                 style={{
-        border: '2px solid #31Bacd',
         width: 280,
-        borderRadius: '10px',
+        color: 'white',
         opacity: 2.5,
         paddingLeft: "50px"
       }}
@@ -86,15 +88,17 @@ const Header = ({
           </Autocomplete>
 
           <Button
+          onClick={handleSubmit}
     style={{
-        borderRadius: 100,
-        backgroundColor: "#31Bacd",
+        borderRadius: '100px',
+        padding: "5px",
+        backgroundColor: "#EAD7D7",
         fontSize: "18px",
         marginLeft: "1px"
     }}
     variant="contained"
     >
-          <FlightTakeoffIcon style={{ color: '#FFF' }}/>
+          <FlightTakeoffIcon style={{ color: '#68436B' }}/>
           </Button>
         </Box>
       </Toolbar>

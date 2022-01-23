@@ -33,7 +33,7 @@ const List = ({
   return (
     <div className={classes.container}
     style={{ color: '#902bf5',
-    marginTop: 100,
+    marginTop: 10,
      }}>
       {isLoading ? (
         <div className={classes.loading}>

@@ -13,6 +13,8 @@ import mapStyles from './mapStyles';
 import useStyles from './styles.js';
 // import './MapWithADirectionRenderer';
 import Header from '../Header/Header';
+import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/loader.css'
+
 
 /*global google*/
 
@@ -66,6 +68,7 @@ function DirectionRenderer(props) {
   return null;
 }
 
+
 const Map = ({
   coords,
   places,
@@ -114,6 +117,7 @@ const Map = ({
   const handleSubmit = () => {
     setStartLatLngSubmit(startLatLng);
     setEndLatLngSubmit(endLatLng);
+
   };
 
   const [map, setMap] = useState(null);
@@ -123,7 +127,9 @@ const Map = ({
   }
 
   return (
+
     <div className='header-map'>
+      
       <Header
         handleSelectStart={handleSelectStart}
         handleChangeStart={handleChangeStart}
@@ -131,12 +137,14 @@ const Map = ({
         handleChangeEnd={handleChangeEnd}
         handleSubmit={handleSubmit}
       />
-
+      
       <div
         className={classes.mapContainer}
         style={{
           borderRadius: 60,
           overflow: 'hidden',
+          borderTopLeftRadius: 0,
+         borderTopRightRadius: 0,
         }}
       >
         <GoogleMapReact
@@ -211,6 +219,7 @@ const Map = ({
         </GoogleMapReact>
       </div>
     </div>
+
   );
 };
 

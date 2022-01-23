@@ -4,10 +4,10 @@ export default [
     elementType: 'all',
     stylers: [
       {
-        saturation: '-12',
+        saturation: '32',
       },
       {
-        lightness: '-3',
+        lightness: '-5',
       },
       {
         visibility: 'on',

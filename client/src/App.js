@@ -6,6 +6,8 @@ import List from './components/List/List';
 import Map from './components/Map/Map';
 import useStyles from '../src/components/Map/styles';
 import ScrollIntoView from 'react-scroll-into-view';
+import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/scroll.css'
+
 
 const App = () => {
   const classes = useStyles();
@@ -56,8 +58,9 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className='cover'>
       <CssBaseline />
+      
       <Grid container spacing={3} style={{ width: '100%' }}>
         <Grid item xs={12} md={4}>
           <List
@@ -73,7 +76,7 @@ const App = () => {
           {direction2Location.length > 1 && (
             <Card
               elevation={6}
-              style={{ marginLeft: 25, maxHeight: 200, overflow: 'auto' }}
+              style={{ marginLeft: 25, maxHeight: 200 }}
             >
               <CardMedia style={{ height: 350 }}>
                 <ScrollIntoView>
@@ -108,9 +111,10 @@ const App = () => {
             places={filteredPlaces.length ? filteredPlaces : places}
             setDirection2Location={setDirection2Location}
           />
+        
         </Grid>
       </Grid>
-    </>
+      </div>
   );
 };
 

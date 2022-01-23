@@ -4,6 +4,8 @@
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
+  
+  
 }
 
 ::-webkit-input-placeholder {
@@ -24,8 +26,24 @@ html {
     box-sizing: border-box;
   }
   
+
+body  {
+  font-family: 'Helvetica Neue', sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: url('https://github.com/sagalafrah/porjectphotos/blob/main/agnis-leznins-Lf6iovoj-Qg-unsplash.jpg?raw=true') no-repeat center center fixed;
+  background-size: cover;
+  color: #FFF;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+  
   body .welcome {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
+    height: 100%;
+    width: 100%;
     margin: 0;
     background: url('https://github.com/sagalafrah/porjectphotos/blob/main/agnis-leznins-Lf6iovoj-Qg-unsplash.jpg?raw=true') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -34,6 +52,7 @@ html {
     color: #FFF;
     font-weight: 700;
     overflow: hidden;
+
   }
   
   ul, nav{
@@ -43,9 +62,12 @@ html {
 
 
   .navbar {
-    background-color: rgba(0, 0, 0, .5);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    /* position: fixed; */
+    top: 10;
+    width: 100%;
   }
   
   a {
@@ -81,6 +103,8 @@ html {
     align-items: center;
     color: #fff;
     padding: 10px 100px 0;
+    -webkit-backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(20px) !important;
   }
   
   header nav ul {
@@ -115,7 +139,8 @@ html {
     color: #fff;
   }
   
-  .cover  {
+  .covertwo  {
+    margin-top:0px;
     height: 100vh;
     width: 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.05)), to(rgba(0,0,0,0)));
@@ -131,6 +156,30 @@ html {
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
+
+  }
+
+
+  .cover  {
+    margin-top:0px;
+    height: 100%;
+    width: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.05)), to(rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+    padding: 20px 50px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+
   }
   
   .flex-form button[type="submit"] {

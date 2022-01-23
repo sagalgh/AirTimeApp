@@ -19,21 +19,22 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import PaidIcon from '@mui/icons-material/Paid';
 import useStyles from './style';
 import BasicModal from '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/components/modals.js'
+import { white } from 'chalk';
 
 
 const PlaceDetails = ({ place, selected, refProp }) => {
-  if (selected)
-    refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (selected) refProp?.current?.scrollIntoView({ behavior: 'smooth' });
   const classes = useStyles();
  
   return (
     <Card
       elevation={6}
       style={{
+        color: 'white',
         marginTop: '10px',
         borderRadius: 60,
         overflow: 'hidden',
-        backgroundColor: '#FFF',
+        backgroundColor: '#1C2E4A',
       }}
     >
       <CardMedia
@@ -65,13 +66,14 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         </Box>
 
         {place?.cuisine?.map(({ name }) => (
-          <Chip display='flex' justifyContent='center' key={name} size='small' label={name} className={classes.chip} />
+          <Chip display='flex' justifyContent='center' key={name} size='small' label={name} className={classes.chip} style={{backgroundColor: '#EAD7D7',
+          color: '#000'}}/>
         ))}
         {place.address && (
           <Typography
             gutterBottom
             variant='body2'
-            color='textSecondary'
+            color='white'
             className={classes.subtitle}
           >
             <LocationOnIcon style={{ color: '#902bf5' }}/>
@@ -81,7 +83,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         {place.phone && (
           <Typography
             variant='body2'
-            color='textSecondary'
+            color='white'
             className={classes.spacing}
           >
             <PhoneIcon style={{ color: '#902bf5' }} /> {place.phone}
