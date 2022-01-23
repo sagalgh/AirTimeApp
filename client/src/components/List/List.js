@@ -53,7 +53,7 @@ const List = ({
 		<li> Restaurants <RestaurantIcon/>
     <ul class="drop-menu menu-2">
 				<li>Retail <LocalOfferIcon/></li>
-				<li>Lounges<WeekendIcon/> </li>
+				<li>Lounges <WeekendIcon/> </li>
 				<li>ATM/Exchange <LocalAtmIcon/></li>
 				<li>Baby-Changing <ChildFriendlyIcon/> </li>
 				<li>Prayer Rooms <LocalLibraryIcon/> </li>

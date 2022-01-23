@@ -92,8 +92,9 @@ const PlaceDetails = ({ place, selected, refProp }) => {
       </CardContent>
       <CardActions
         style={{
-          paddingLeft: '105px',
-          paddingRight: '120px',
+          display: 'flex',
+          justifyContent: 'center',
+
         }}
       >
         <Button

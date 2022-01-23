@@ -20,6 +20,10 @@ html, body {
   }
   .droppy li:hover {
     background: #E5CDCD;
+    border-radius: 25px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    
   }
   .droppy > ul {
     list-style: none;
@@ -27,7 +31,7 @@ html, body {
     margin: 0;
     display: inline-block;
     background: #EAD7D7;
-    border-radius: 5px;
+    border-radius: 25px;
     color: #1C2E4A;
   }
   .droppy > ul > li {
