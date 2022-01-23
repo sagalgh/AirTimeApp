@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import "../css/chatPage.css";
 import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/chathomepage.scss';
 import Typography from '@mui/material/Typography';
+import { typography } from "@mui/system";
 
 
  const ChatPage = (props) => {
@@ -23,10 +24,25 @@ import Typography from '@mui/material/Typography';
                 <div className="chatpage-header">
                     <div className="titleText">
                         <div className="row center">
-                            <h1> Welcome to AirTime Connect!</h1>
+                        <Typography component='h1' variant='h2' 
+        style={{ color: '#FFF',
+                 display: 'flex',
+                 justifyContent: 'center',
+                 marginTop: '-60px'
+                  }}>
+              
+              Welcome to AirTime Connect!
+            </Typography>
                         </div>
                         <div className="row center">
-                            <h3> Join chat rooms, and talk to other travelers.</h3>
+                        <Typography component='h1' variant='h4' 
+        style={{ color: '#FFF',
+                 display: 'flex',
+                 justifyContent: 'center'
+                  }}>
+              
+              Join chat rooms, and talk to other travelers.
+            </Typography>
                         </div>
                     </div>
                     <form onSubmit={joinRoom}>

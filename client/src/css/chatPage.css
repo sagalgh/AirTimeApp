@@ -1,7 +1,7 @@
 
 
 .chatpage-bottom{
-  background: #A6CDE2;
+  background: #0A3C53;
   overflow: auto;
   height: 70vh;
   color:white;
@@ -10,9 +10,7 @@
 
 
 
-.input-group-prepend {
-  vertical-align: middle !important;
-}
+
 
 .chatpage-header{
   padding: 30vh;
