@@ -47,21 +47,7 @@ const List = ({
         </div>
       ) : (
         <>
-        <div class="container">
-  <div class="droppy">
-        <ul>
-		<li> Restaurants <RestaurantIcon/>
-    <ul class="drop-menu menu-2">
-				<li>Retail <LocalOfferIcon/></li>
-				<li>Lounges <WeekendIcon/> </li>
-				<li>ATM/Exchange <LocalAtmIcon/></li>
-				<li>Baby-Changing <ChildFriendlyIcon/> </li>
-				<li>Prayer Rooms <LocalLibraryIcon/> </li>
-			</ul>
-		</li>
-	</ul>
-  </div>
-  </div>
+        
 
           <Grid container spacing={3} className={classes.list}>
             {places?.map((place, i) => (

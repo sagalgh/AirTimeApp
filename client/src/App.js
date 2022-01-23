@@ -6,7 +6,14 @@ import List from './components/List/List';
 import Map from './components/Map/Map';
 import useStyles from '../src/components/Map/styles';
 import ScrollIntoView from 'react-scroll-into-view';
-import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/scroll.css'
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import WeekendIcon from '@mui/icons-material/Weekend';
+import LocalAtmIcon from '@mui/icons-material/LocalAtm';
+import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
+import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
+import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/dropdown.css';
+
 
 
 const App = () => {
@@ -60,9 +67,26 @@ const App = () => {
   return (
     <div className='cover'>
       <CssBaseline />
-      
-      <Grid container spacing={3} style={{ width: '100%' }}>
+      <div class="container">
+  <div class="droppy">
+        <ul>
+		<li> Restaurants <RestaurantIcon/>
+    <ul class="drop-menu menu-2">
+				<li>Retail <LocalOfferIcon/></li>
+				<li>Lounges <WeekendIcon/> </li>
+				<li>ATM/Exchange <LocalAtmIcon/></li>
+				<li>Baby-Changing <ChildFriendlyIcon/> </li>
+				<li>Prayer Rooms <LocalLibraryIcon/> </li>
+			</ul>
+		</li>
+	</ul>
+  </div>
+  </div>
+      <Grid container spacing={3} style={{ width: '100%', 
+      height: '100%',
+      marginTop: '60px'}}>
         <Grid item xs={12} md={4}>
+        
           <List
             isLoading={isLoading}
             childClicked={childClicked}
@@ -114,7 +138,7 @@ const App = () => {
         
         </Grid>
       </Grid>
-      </div>
+    </div>
   );
 };
 
