@@ -19,6 +19,7 @@ import { typography } from "@mui/system";
   }
 
     return (
+        <div className ='chatpagebg'>
         <div className="chatpage">
             <div className="">
                 <div className="chatpage-header">
@@ -160,7 +161,7 @@ import { typography } from "@mui/system";
               
               Create a Username.
             </Typography>
-              <p>You can use any username you want with numbers and letters. Be ask creative as you like and feel free to use a nickname!</p>
+              <h5>You can use any username you want with numbers and letters. Be ask creative as you like and feel free to use a nickname!</h5>
             </div>
             <div className="tab tab-1">
             <Typography component='h1' variant='h2' 
@@ -174,7 +175,7 @@ import { typography } from "@mui/system";
               
               Enter Your Flight #.
             </Typography>
-              <p>Please enter the letters and the numbers on your lifht number. The format is usually 2 letters and 3-4 numbers. Check your boarding pass if you're unsure!</p>
+              <h5>Please enter the letters and the numbers on your flight number. The format is usually 2 letters and 3-4 numbers. Check your boarding pass if you're unsure!</h5>
             </div>
             <div className="tab tab-2">
             <Typography component='h1' variant='h2' 
@@ -188,7 +189,7 @@ import { typography } from "@mui/system";
               
               Enter The Chat Room.
             </Typography>
-              <p>You will be placed with people on your flight. You cannot join any other chat rooms, but feel free to get to know other adventurers. Who knows, maybe you'll make a friend! </p>
+             <h5>You will be placed with people on your flight. You cannot join any other chat rooms, but feel free to get to know other adventurers. Who knows, maybe you'll make a friend! </h5>
             </div>
             <div className="tab tab-3">
             <Typography component='h1' variant='h2' 
@@ -202,7 +203,7 @@ import { typography } from "@mui/system";
               
               Log Out.
             </Typography>
-              <p>Self-Explanatory. If you do logout, you won't lose your precious pins! Log back in to see all the cool places you want to travel to in the future.</p>
+              <h5>Self-Explanatory. If you do logout, you won't lose your precious pins! Log back in to see all the cool places you want to travel to in the future.</h5>
             </div>
             <div className="tab tab-4">
             <Typography component='h1' variant='h2' 
@@ -216,7 +217,7 @@ import { typography } from "@mui/system";
               
               Have Fun!
             </Typography>
-              <p>.....And be safe. Please do not share details of your trip such as hotels, hostels, and AirBnb's with strangers! You can always pull people to the side to chat 🤪 </p>
+              <h5>.....And be safe. Please do not share details of your trip such as hotels, hostels, and AirBnb's with strangers! You can always pull people to the side to chat 🤪 </h5>
             </div>
           </div>
         </div>
@@ -225,8 +226,9 @@ import { typography } from "@mui/system";
                     </div>
             </div>
         </div>
+        </div>
     );
 };
 
-export default ChatPage
+export default ChatPage;
 
