@@ -13,7 +13,6 @@ import mapStyles from './mapStyles';
 import useStyles from './styles.js';
 // import './MapWithADirectionRenderer';
 import Header from '../Header/Header';
-import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/loader.css';
 
 /*global google*/
 
