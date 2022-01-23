@@ -1,6 +1,13 @@
 import React from 'react';
 import { Autocomplete } from '@react-google-maps/api';
-import { AppBar, Toolbar, Typography, InputBase, Box, Button } from '@material-ui/core';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  InputBase,
+  Box,
+  Button,
+} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import useStyles from '../Map/styles.js';
@@ -34,7 +41,7 @@ const Header = ({
       }}
     >
       <Toolbar className={classes.toolbar}>
-        <Box display='flex' >
+        <Box display='flex'>
           <Typography variant='h6' className={classes.title}></Typography>
           <Autocomplete
             onLoad={handleChangeStart}
@@ -42,63 +49,55 @@ const Header = ({
           >
             <div className={classes.search}>
               <div className={classes.searchIcon}>
-                <SearchIcon 
-                  style={{ color: '#EAD7D7' }}
-                />
+                <SearchIcon style={{ color: '#EAD7D7' }} />
               </div>
               <InputBase
                 placeholder='From'
                 classes={{ root: classes.inputRoot, input: classes.inputInput }}
                 style={{
+                  width: 280,
+                  color: 'white',
 
-        width: 280,
-        color: 'white',
-
-        opacity: 2.5,
-        paddingLeft: "50px"
-      }}
+                  opacity: 2.5,
+                  paddingLeft: '50px',
+                }}
               />
             </div>
           </Autocomplete>
-          <DirectionsWalkIcon style=
-          {{ color: '#EAD7D7',
-          marginTop: 7.3}}
-          />
+          <DirectionsWalkIcon style={{ color: '#EAD7D7', marginTop: 7.3 }} />
           <Autocomplete
             onLoad={handleChangeEnd}
             onPlaceChanged={handleSelectEnd}
           >
             <div className={classes.search}>
               <div className={classes.searchIcon}>
-                <SearchIcon 
-                  style={{ color: '#EAD7D7' }}
-                />
+                <SearchIcon style={{ color: '#EAD7D7' }} />
               </div>
               <InputBase
                 placeholder='To'
                 classes={{ root: classes.inputRoot, input: classes.inputInput }}
                 style={{
-        width: 280,
-        color: 'white',
-        opacity: 2.5,
-        paddingLeft: "50px"
-      }}
+                  width: 280,
+                  color: 'white',
+                  opacity: 2.5,
+                  paddingLeft: '50px',
+                }}
               />
             </div>
           </Autocomplete>
 
           <Button
-          onClick={handleSubmit}
-    style={{
-        borderRadius: '100px',
-        padding: "5px",
-        backgroundColor: "#EAD7D7",
-        fontSize: "18px",
-        marginLeft: "1px"
-    }}
-    variant="contained"
-    >
-          <FlightTakeoffIcon style={{ color: '#68436B' }}/>
+            onClick={handleSubmit}
+            style={{
+              borderRadius: '100px',
+              padding: '5px',
+              backgroundColor: '#EAD7D7',
+              fontSize: '18px',
+              marginLeft: '1px',
+            }}
+            variant='contained'
+          >
+            <FlightTakeoffIcon style={{ color: '#68436B' }} />
           </Button>
         </Box>
       </Toolbar>

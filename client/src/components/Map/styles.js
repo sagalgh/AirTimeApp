@@ -16,6 +16,7 @@ export default makeStyles((theme) => ({
     width: '57.3vw',
     marginRight: '0px',
     marginLeft: '22px',
+    border: '16px solid #1C2E4A',
 
 
 
@@ -87,5 +88,9 @@ export default makeStyles((theme) => ({
     marginTop: '20px',
     width: '50vw',
     marginLeft: '22px',
+    // borderTopLeftRadius: 25,
+    // borderTopRightRadius: 25,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
   },
 }));

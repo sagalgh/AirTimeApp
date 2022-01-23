@@ -6,6 +6,7 @@ import List from './components/List/List';
 import Map from './components/Map/Map';
 import useStyles from '../src/components/Map/styles';
 import ScrollIntoView from 'react-scroll-into-view';
+
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import WeekendIcon from '@mui/icons-material/Weekend';
@@ -14,6 +15,9 @@ import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/dropdown.css';
 
+
+
+import './scroll.css';
 
 
 const App = () => {
@@ -67,6 +71,7 @@ const App = () => {
   return (
     <div className='cover'>
       <CssBaseline />
+
       <div class="container">
   <div class="droppy">
         <ul>
@@ -85,6 +90,10 @@ const App = () => {
       <Grid container spacing={3} style={{ width: '100%', 
       height: '100%',
       marginTop: '60px'}}>
+
+
+      <Grid container spacing={3} style={{ width: '100%' }}>
+
         <Grid item xs={12} md={4}>
         
           <List
@@ -98,13 +107,10 @@ const App = () => {
           />
 
           {direction2Location.length > 1 && (
-            <Card
-              elevation={6}
-              style={{ marginLeft: 25, maxHeight: 200 }}
-            >
+            <Card elevation={6} style={{ marginLeft: 25, maxHeight: 200 }}>
               <CardMedia style={{ height: 350 }}>
                 <ScrollIntoView>
-                  <div >
+                  <div>
                     {direction2Location.map((step) => {
                       return (
                         <div
@@ -135,7 +141,6 @@ const App = () => {
             places={filteredPlaces.length ? filteredPlaces : places}
             setDirection2Location={setDirection2Location}
           />
-        
         </Grid>
       </Grid>
     </div>
