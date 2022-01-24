@@ -72,42 +72,6 @@ const App = () => {
             rating={rating}
             setRating={setRating}
           />
-          <div className='direction-pop-out'>
-            {direction2Location.length > 1 && (
-              <Card
-                elevation={10}
-                style={{
-                  marginLeft: 25,
-                  maxHeight: 200,
-                  borderRadius: '30px',
-                  color: '#1C2E4A',
-                  backgroundColor: '#EAD7D7',
-                }}
-              >
-                <CardMedia style={{ height: 350, overflow: 'scroll' }}>
-                  {direction2Location.map((step) => {
-                    return (
-                      <div
-                        style={{
-                          marginLeft: 25,
-                          marginTop: 25,
-                          fontWeight: 500,
-                          fontSize: 28,
-                          fontFamily: 'Helvetica Neue',
-                          overflow: 'scroll',
-                        }}
-                      >
-                        {step.instructions.replace(regex, '    ')}
-                        <button style={{ color: 'primary' }}>
-                          {step.duration.text}
-                        </button>
-                      </div>
-                    );
-                  })}
-                </CardMedia>
-              </Card>
-            )}
-          </div>
         </Grid>
 
         <Grid item xs={12} md={8}>
