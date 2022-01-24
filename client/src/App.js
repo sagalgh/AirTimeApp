@@ -7,7 +7,7 @@ import Map from './components/Map/Map';
 import useStyles from '../src/components/Map/styles';
 import ScrollIntoView from 'react-scroll-into-view';
 import './App.css';
-import { SeverityPill } from '/Users/ansaarahmed/lighthouse/AirTimeApp/client/src/components/helpers/severity-pill.js';
+import { SeverityPill } from './components/helpers/severity-pill.js';
 
 const App = () => {
   const classes = useStyles();
