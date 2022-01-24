@@ -55,9 +55,9 @@ const Header = ({
                 placeholder='From'
                 classes={{ root: classes.inputRoot, input: classes.inputInput }}
                 style={{
-                  width: 280,
+                  width: 400,
+                  fontSize: 22,
                   color: 'white',
-
                   opacity: 2.5,
                   paddingLeft: '50px',
                 }}
@@ -77,7 +77,8 @@ const Header = ({
                 placeholder='To'
                 classes={{ root: classes.inputRoot, input: classes.inputInput }}
                 style={{
-                  width: 280,
+                  width: 400,
+                  fontSize: 22,
                   color: 'white',
                   opacity: 2.5,
                   paddingLeft: '50px',

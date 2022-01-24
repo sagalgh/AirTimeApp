@@ -6,19 +6,8 @@ import List from './components/List/List';
 import Map from './components/Map/Map';
 import useStyles from '../src/components/Map/styles';
 import ScrollIntoView from 'react-scroll-into-view';
-
-import RestaurantIcon from '@mui/icons-material/Restaurant';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import WeekendIcon from '@mui/icons-material/Weekend';
-import LocalAtmIcon from '@mui/icons-material/LocalAtm';
-import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
-import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
-import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/dropdown.css';
-
-
-
-import './scroll.css';
-
+import './App.css';
+import { SeverityPill } from '/Users/ansaarahmed/lighthouse/AirTimeApp/client/src/components/helpers/severity-pill.js';
 
 const App = () => {
   const classes = useStyles();
@@ -72,30 +61,8 @@ const App = () => {
     <div className='cover'>
       <CssBaseline />
 
-      <div class="container">
-  <div class="droppy">
-        <ul>
-		<li> Restaurants <RestaurantIcon/>
-    <ul class="drop-menu menu-2">
-				<li>Retail <LocalOfferIcon/></li>
-				<li>Lounges <WeekendIcon/> </li>
-				<li>ATM/Exchange <LocalAtmIcon/></li>
-				<li>Baby-Changing <ChildFriendlyIcon/> </li>
-				<li>Prayer Rooms <LocalLibraryIcon/> </li>
-			</ul>
-		</li>
-	</ul>
-  </div>
-  </div>
-      <Grid container spacing={3} style={{ width: '100%', 
-      height: '100%',
-      marginTop: '60px'}}>
-
-
       <Grid container spacing={3} style={{ width: '100%' }}>
-
         <Grid item xs={12} md={4}>
-        
           <List
             isLoading={isLoading}
             childClicked={childClicked}
@@ -105,32 +72,42 @@ const App = () => {
             rating={rating}
             setRating={setRating}
           />
-
-          {direction2Location.length > 1 && (
-            <Card elevation={6} style={{ marginLeft: 25, maxHeight: 200 }}>
-              <CardMedia style={{ height: 350 }}>
-                <ScrollIntoView>
-                  <div>
-                    {direction2Location.map((step) => {
-                      return (
-                        <div
-                          style={{
-                            marginLeft: 25,
-                            marginTop: 25,
-                            fontWeight: 500,
-                            fontSize: 20,
-                          }}
-                        >
-                          {step.instructions.replace(regex, '    ')}
-                          {step.duration.text} ({step.distance.text})
-                        </div>
-                      );
-                    })}
-                  </div>
-                </ScrollIntoView>
-              </CardMedia>
-            </Card>
-          )}
+          <div className='direction-pop-out'>
+            {direction2Location.length > 1 && (
+              <Card
+                elevation={10}
+                style={{
+                  marginLeft: 25,
+                  maxHeight: 200,
+                  borderRadius: '30px',
+                  color: '#1C2E4A',
+                  backgroundColor: '#EAD7D7',
+                }}
+              >
+                <CardMedia style={{ height: 350, overflow: 'scroll' }}>
+                  {direction2Location.map((step) => {
+                    return (
+                      <div
+                        style={{
+                          marginLeft: 25,
+                          marginTop: 25,
+                          fontWeight: 500,
+                          fontSize: 28,
+                          fontFamily: 'Helvetica Neue',
+                          overflow: 'scroll',
+                        }}
+                      >
+                        {step.instructions.replace(regex, '    ')}
+                        <button style={{ color: 'primary' }}>
+                          {step.duration.text}
+                        </button>
+                      </div>
+                    );
+                  })}
+                </CardMedia>
+              </Card>
+            )}
+          </div>
         </Grid>
 
         <Grid item xs={12} md={8}>

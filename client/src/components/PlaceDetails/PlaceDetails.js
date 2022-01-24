@@ -52,6 +52,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
           style={{
             fontFamily: 'Helvetica Neue',
             fontWeight: 400,
+            fontSize: 40,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -100,7 +101,6 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         style={{
           display: 'flex',
           justifyContent: 'center',
-
         }}
       >
         <Button
