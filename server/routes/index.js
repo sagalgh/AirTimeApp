@@ -1,35 +1,40 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-const databaseHelper = require("../databaseHelper/databaseHelper")
-const db = require('../db/index')
+const databaseHelper = require("../databaseHelper/databaseHelper");
+const {addYelpUrl} = require("../helpers/chatHelperFunctions");
+const db = require("../db/index");
 
+router.get("/test", function (req, res, next) {
+  console.log("SAGAL");
+});
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   console.log("SAGAL")
-//   // res.render('index', { title: 'Express' });
-// });
-// module.exports = (db) => {
-router.get('/test', function(req,res,next){
-  console.log("SAGAL")
-})
 //user can favorite items in chat
-router.post('/favorites', function(req,res){
-  const room_id= req.body.roomID
-  const user_id = req.body.userID
-  const text= req.body.text
-  databaseHelper.favoritedMsg(room_id, user_id, text,db)
-  .then((newFavoritedMsg) => {
-          if(!newFavoritedMsg){
-            res.send({error: "no favorited msg"})
-            return;
-          }
-          res.json(newFavoritedMsg.rows[0]);
-        })
-        .catch((e) => { 
-          console.log(e)
-          res.send({error:"server unavailable"})
-        });
-})
-// }
+router.post("/favorites", async function (req, res) {
+  const room_id = req.body.roomID;
+  const user_id = req.body.userID;
+  const text = req.body.text;
+  const response = await addYelpUrl(text)
+const url = response.url
+const image_url= response.image_url
+const name= response.name
+ try {
+   const response= await databaseHelper
+    .favoritedMsg(room_id, user_id, text, url,image_url,name, db)
+     return  res.json(response.rows[0]);
+ } catch(e){
+   console.log(e)
+ }
+});
+//user can view all favorites items in chat
+router.get("/pinnedmsgs", function (req, res, next) {
+  databaseHelper
+    .allPinnedMsgs(db)
+    .then((response) => {
+      res.json(response.rows);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+});
+
 module.exports = router;

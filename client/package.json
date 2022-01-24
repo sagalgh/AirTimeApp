@@ -1,5 +1,5 @@
 {
-  "name": "google-map-app",
+  "name": "airttime-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,9 +27,9 @@
     "fuse": "^0.4.0",
     "fuse.js": "^3.6.1",
     "google-map-react": "^2.1.10",
-    "google-maps-react": "^2.0.6",
     "jquery": "^3.6.0",
     "node-sass": "^7.0.1",
+    "path-browserify": "^1.0.1",
     "popper": "^1.0.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.1",
@@ -46,7 +46,8 @@
     "recompose": "^0.30.0",
     "redux-logger": "^3.0.6",
     "socket.io-client": "^4.4.1",
-    "web-vitals": "^2.1.3"
+    "web-vitals": "^2.1.3",
+    "webpack": "^4.46.0"
   },
   "scripts": {
     "start": "react-scripts start",

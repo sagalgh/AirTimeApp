@@ -9,6 +9,7 @@ import {
     IS_TYPING,
     STOPPED_TYPING,
     PINNED_MSG,
+    LOAD_PINNED_MSGS
 } from "../reducers/actions";
 const mapStateToProps = (state) => {
     return {

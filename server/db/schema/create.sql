@@ -42,10 +42,13 @@ CREATE TABLE flights (
 
 CREATE TABLE favorited_chats(
   id SERIAL PRIMARY KEY NOT NULL,
-  room_id INTEGER NOT NULL,
+  room_id VARCHAR(255) NOT NULL,
   user_id VARCHAR NOT NULL,
-  text VARCHAR(255) NOT NULL
-)
+  text VARCHAR(255) NOT NULL,
+  url VARCHAR(255) NOT NULL,
+  image_url VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL
+);
 
 CREATE TABLE favorited_chats_categories (
   id SERIAL PRIMARY KEY NOT NULL,

@@ -26,6 +26,11 @@ function Navigation() {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink className="nav-link" to="/pinnedchat">
+                  Recommendations
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink className="nav-link" to="/tsa">
                 <Typography component="h1" variant="h6" style={{opacity: 0.9}} > Checkpoints </Typography>
                 </NavLink>
