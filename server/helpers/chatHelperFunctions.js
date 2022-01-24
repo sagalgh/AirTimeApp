@@ -57,6 +57,7 @@ const categorizeMessage = function (pinnedMessage, matchKeyWords) {
 exports.categorizeMessage = categorizeMessage;
 
 const apiMatchMessage = async function (pinnedMessage, categoryId) {
+  
   const gettingKeyTerm = function () {
     const sentenceArray = pinnedMessage.split(" ");
     sentenceArray.forEach((word, index) => {
@@ -70,7 +71,7 @@ const apiMatchMessage = async function (pinnedMessage, categoryId) {
   const keyterm = gettingKeyTerm();
   if (categoryId === 102) {
     var settings = {
-      url: `https://api.yelp.com/v3/businesses/search?term=${keyterm}&location=Granada%20Spain&categories=restaurants`,
+      url: `https://api.yelp.com/v3/businesses/search?term=${keyterm}&location=Hawaii&categories=restaurants`,
       method: "GET",
       timeout: 0,
       headers: {
@@ -79,11 +80,12 @@ const apiMatchMessage = async function (pinnedMessage, categoryId) {
       },
     };
     const result = await axios.request(settings);
+    console.log(result.data.businesses[0], "result---line 83")
     return result.data.businesses[0];
   }
   if (categoryId === 103) {
     var settings = {
-      url: `https://api.yelp.com/v3/businesses/search?term=${keyterm}&location=Granada%20Spain&categories=museums`,
+      url: `https://api.yelp.com/v3/businesses/search?term=${keyterm}&location=Hawaii&categories=museums`,
       method: "GET",
       timeout: 0,
       headers: {
@@ -97,7 +99,7 @@ const apiMatchMessage = async function (pinnedMessage, categoryId) {
   }
   if (categoryId === 105) {
     var settings = {
-      url: `https://api.yelp.com/v3/businesses/search?term=${keyterm}&location=Granada%20Spain&categories=tours`,
+      url: `https://api.yelp.com/v3/businesses/search?term=${keyterm}&location=Hawaii&categories=tours`,
       method: "GET",
       timeout: 0,
       headers: {
