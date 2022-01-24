@@ -148,7 +148,7 @@ const Map = ({
         <div
           className='directions-panel'
           style={{
-            maxHeight: 1000,
+            maxHeight: 810,
             float: 'right',
             width: '390px',
             overflow: 'scroll',
@@ -159,11 +159,10 @@ const Map = ({
             color: '#000',
             fontWeight: '200px',
             zIndex: 5,
-            backgroundColor: 'white',
+            paddingLeft: '10px',
             borderRadius: '15px',
-            padding: '10px',
             opacity: 0.9,
-            backgroundColor: '#ffffe0',
+            backgroundColor: '#DFDFF0',
           }}
           ref={panel}
         ></div>
