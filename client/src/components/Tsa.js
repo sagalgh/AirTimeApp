@@ -26,8 +26,8 @@ const orders = [
     customer: {
       name: '9, 10, 11A-11B, 12A-12B, 13-15, 16A, 17A-17B',
     },
-    createdAt: 1555016400000,
-    status: 'pending',
+    createdAt: 'AVAILABLE',
+    status: '15 minutes or less',
   },
   {
     id: 'Terminal 1',
@@ -36,8 +36,8 @@ const orders = [
     customer: {
       name: 'Hub for International Flights',
     },
-    createdAt: 1555016400000,
-    status: 'delivered',
+    createdAt: 'TSA PRECHECK ONLY',
+    status: '15 minutes or less',
   },
   {
     id: 'Terminal 1',
@@ -46,8 +46,8 @@ const orders = [
     customer: {
       name: 'Only used by Delta Airlines.',
     },
-    createdAt: 1554930000000,
-    status: 'refunded',
+    createdAt: 'AVAILABLE',
+    status: 'Longer than 40 minutes',
   },
   {
     id: 'Terminal 1',
@@ -56,8 +56,8 @@ const orders = [
     customer: {
       name: 'Only used by American Airlines',
     },
-    createdAt: 1554757200000,
-    status: 'pending',
+    createdAt: 'NO GLOBAL ENTRY',
+    status: 'Between 20 and 45 minutes',
   },
   {
     id: 'Terminal 1',
@@ -66,8 +66,8 @@ const orders = [
     customer: {
       name: '50A, 50B, 51A, 51B, 53A, 53B, 54A, 54B, 55A, 56, 57, 58, 59',
     },
-    createdAt: 1554670800000,
-    status: 'delivered',
+    createdAt: 'AVAILABLE',
+    status: '15 minutes or less',
   },
   {
     id: 'Terminal 1',
@@ -76,8 +76,8 @@ const orders = [
     customer: {
       name: '60, 63, 64A, 64B, 65A, 65B, 66, 67, 68A, 68B, 69A 69B',
     },
-    createdAt: 1554670800000,
-    status: 'delivered',
+    createdAt: 'AVAILABLE',
+    status: 'Longer than 40 minutes',
   },
 ];
 
@@ -92,13 +92,8 @@ export const Tsa = (props) => (
           <TableRow>
             <TableCell>Terminal</TableCell>
             <TableCell>Checkpoint Information</TableCell>
-            <TableCell Expedited Screening='desc'>
+            <TableCell>Expedited Screening</TableCell>
 
-                <TableSortLabel active direction='desc'>
-                  Date
-                </TableSortLabel>
-
-            </TableCell>
             <TableCell>Status</TableCell>
           </TableRow>
         </TableHead>
@@ -107,12 +102,19 @@ export const Tsa = (props) => (
             <TableRow hover key={order.id}>
               <TableCell>{order.ref}</TableCell>
               <TableCell>{order.customer.name}</TableCell>
-              <TableCell></TableCell>
+              <TableCell>
+              <Button variant='contained' style ={{
+                backgroundColor:'#16587E',
+                
+                borderRadius: '25px'
+              }}
+              >
+              {order.createdAt}</Button></TableCell>
               <TableCell>
                 <SeverityPill
                   color={
-                    (order.status === 'delivered' && 'success') ||
-                    (order.status === 'refunded' && 'error') ||
+                    (order.status === '15 minutes or less' && 'success') ||
+                    (order.status === 'Longer than 40 minutes' && 'error') ||
                     'warning'
                   }
                 >
