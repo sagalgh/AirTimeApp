@@ -93,11 +93,11 @@ export const Tsa = (props) => (
             <TableCell>Terminal</TableCell>
             <TableCell>Checkpoint Information</TableCell>
             <TableCell Expedited Screening='desc'>
-              <Tooltip enterDelay={300} title='Sort'>
+
                 <TableSortLabel active direction='desc'>
                   Date
                 </TableSortLabel>
-              </Tooltip>
+
             </TableCell>
             <TableCell>Status</TableCell>
           </TableRow>
