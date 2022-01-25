@@ -202,10 +202,10 @@ html {
   }
   
   .flex-form button[type="submit"]:hover {
-    background: #FFF;
-    border: 1px solid #912BF6;
-    color: #912BF6;
-    opacity: 0.5;
+    background: #5E00C3;
+    border: 1px solid #5E00C3;
+    color: #FFF;
+    opacity: 1;
   }
   
   svg {
