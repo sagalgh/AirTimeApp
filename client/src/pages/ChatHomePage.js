@@ -1,6 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+<<<<<<< Updated upstream
 import "../css/chatPage.css";
+=======
+import '../css/chatPage.css';
+import '../chathomepage.scss';
+import '../chatlogin.css'
+import ChatModal from '/Users/sagalghelle/Desktop/finalAirTimeApp/client/src/chatmodal.js'
+import Typography from '@mui/material/Typography';
+import { typography } from '@mui/system';
+import Card from '@mui/material/Card'
+import Box from '@mui/material/Box'
+import CardHeader from '@mui/material/CardHeader'
+>>>>>>> Stashed changes
 
  const ChatPage = (props) => {
   const navigate = useNavigate();

@@ -10,6 +10,10 @@ import {
 
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 import useStyles from '../List/style.js';
+<<<<<<< Updated upstream
+=======
+import '/Users/sagalghelle/Desktop/finalAirTimeApp/client/src/dropdown.css';
+>>>>>>> Stashed changes
 
 const List = ({
   places,

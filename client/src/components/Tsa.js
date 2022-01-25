@@ -1,4 +1,10 @@
 import * as React from 'react';
+<<<<<<< Updated upstream
+=======
+import '../checkpoints.css'
+
+
+>>>>>>> Stashed changes
 
 import {
   Box,
