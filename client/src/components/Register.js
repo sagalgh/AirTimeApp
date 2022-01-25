@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { borderRadius } from '@mui/system';
-import '/Users/ansaarahmed/lighthouse/AirTimeApp/client/src/SignIn.css';
+import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/components/Register.js';
 
 const theme = createTheme();
 
