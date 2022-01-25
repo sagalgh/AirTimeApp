@@ -1,65 +1,66 @@
-import React from 'react'
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import MessageContainer from './MessageContainer';
 import UserMessages from './UserMessages';
-import { faCommentDots, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { faCommentDots, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const MessageBox = (props) => {
   const navigate = useNavigate();
-  console.log('state pinned messages', props.pinnedMessages)
-  
+  console.log('state pinned messages', props.pinnedMessages);
+
   function disconnect() {
-  navigate('/chathomepage');
+    navigate('/chathomepage');
   }
-  const style ={
-    lineHeight: "3vh",
-    display: "flex",
-    justifyContent: "flex-end"
-  }
+  const style = {
+    lineHeight: '3vh',
+    display: 'flex',
+    justifyContent: 'flex-end',
+  };
 
-    return (
-        <div className="col messageBox-container">
-            <div className="row messageBox-container-header">
-                <div className="col">
-                    <p> <FontAwesomeIcon icon={faCommentDots} /> Room: {props.roomId}</p>
-                </div>
-                <div className="col text-right">
-                    <div className="row right text-right">
-                        <p style={style}>
-                            {props.users.length}{" "}
-                            {`${props.users.length === 1 ? "user" : "users"}`}{" "}
-                            online
-                            < FontAwesomeIcon icon={faSignOutAlt} onClick={disconnect} id="exit-btn"/>
-                        </p>
-                        
-                       
-                    </div>
-                </div>
-            </div>
-            <div id="messages" className="row ">
-                <div className="col">
-                    {props.messages.map((msg, i) => {
-                        if (msg.user.id === props.ownUser.id) {
-                            return (
-                                <UserMessages key={i} message={msg} />
-                            );
-                        } else {
-                            return (
-                                <MessageContainer
-                                    key={i}
-                                    message={msg}
-                                    user={msg.user}
-                                    addPinnedMessages={props.addPinnedMessages}
-                                />
-                            );
-                        }
-                    })}
-                </div>
-            </div>
+  return (
+    <div className='col messageBox-container'>
+      <div className='row messageBox-container-header'>
+        <div className='col'>
+          <p>
+            {' '}
+            <FontAwesomeIcon icon={faCommentDots} /> Room: {props.roomId}
+          </p>
         </div>
-    );
-}
+        <div className='col text-right'>
+          <div className='row right text-right'>
+            <p style={style}>
+              {props.users.length}{' '}
+              {`${props.users.length === 1 ? 'user' : 'users'}`} online
+              <FontAwesomeIcon
+                icon={faSignOutAlt}
+                onClick={disconnect}
+                id='exit-btn'
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id='messages' className='row '>
+        <div className='col'>
+          {props.messages.map((msg, i) => {
+            if (msg.user.id === props.ownUser.id) {
+              return <UserMessages key={i} message={msg} />;
+            } else {
+              return (
+                <MessageContainer
+                  key={i}
+                  message={msg}
+                  user={msg.user}
+                  addPinnedMessages={props.addPinnedMessages}
+                />
+              );
+            }
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default MessageBox
+export default MessageBox;

@@ -8,7 +8,6 @@ import './index.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Home from './components/Home';
-import Footer from './components/Footer';
 import Flight from './components/Flight';
 import Map from './components/Map/Map';
 import Tsa from './components/Tsa';

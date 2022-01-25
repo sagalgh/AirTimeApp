@@ -1,0 +1,188 @@
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .bg {
+    width: 280px;
+    height: 280px;
+    position: relative;
+  }
+  
+  .circle {
+    animation: bounceIn 3s forwards 1000ms infinite;
+    background: #50A8FA;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+  
+  .circle-small {
+    animation: bounceIn 3s forwards infinite;
+    background: #7BB8FF;
+    opacity: 0;
+    height: 85%;
+    width: 85%;
+    border-radius: 50%;
+    position: absolute;
+    left: 7.5%;
+    top: 7.5%;
+  }
+  
+  .maquineta {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+  }
+  
+  .section1 .screen {
+    animation: screenUp 300ms forwards 1s;
+    fill: #000;
+  }
+  
+  .section1 .screen-text1,
+  .section1 .screen-text2{
+    animation: screenText 300ms forwards 1.5s;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  .section1 .screen-text2 {
+    animation-delay: 1.7s;
+  }
+  
+  .section1 .credit-card {
+    animation: creditCardEnter 1s forwards;
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(75px) translateX(-5px);
+    z-index: 1;
+  }
+  
+  .section1 .money {
+    animation: moneyUp 1.5s forwards 2s;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 3;
+    font: 2rem sans-serif;
+    color: #0AB155;
+    opacity: 0;
+    transform: scale(.2);
+  }
+  
+  .section1 .money-1 {
+    animation-delay: 2.1s;
+    left: 80%;
+    font-size: 1.5rem;
+  }
+  
+  .section1 .money-2 {
+    animation-delay: 2.3s;
+    left: 30%;
+    top: 66%;
+    font-size: 1.5rem;
+  }
+  
+  .section1 .money-3 {
+    animation-delay: 2.2s;
+    left: 25%;
+    top: 40%;
+    font-size: .5rem;
+  }
+  
+  .section1 .money-4 {
+    top: 60%;
+    left: 65%;
+    font-size: 1rem;
+  }
+  
+  .section1 .money-5 {
+    animation-delay: 2.4s;
+    top: 45%;
+    left: 70%;
+    font-size: .6rem;
+  }
+  
+  .section1 .money-6 {
+    animation-delay: 2.1s;
+    left: 20%;
+    font-size: 1.7rem;
+  }
+  
+  @keyframes bounceIn {
+    from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+  
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+  
+    20% {
+      transform: scale(1.1);
+    }
+  
+    40% {
+      transform: scale(0.9);
+    }
+  
+    60% {
+      opacity: .1;
+      transform: scale(1.03);
+    }
+  
+    80% {
+      transform: scale(0.97);
+    }
+  
+    to {
+      opacity: .1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes screenUp {
+    to {
+      fill: #ffd2a6;
+    }
+  }
+  
+  @keyframes screenText {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes creditCardEnter {
+    to {
+      opacity: 1;
+      transform: translateY(10px) translateX(-5px);
+    }
+  }
+  
+  @keyframes moneyUp {
+    20% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    to {
+      opacity: 0;
+      transform: scale(1) translateY(-50px);
+    }
+  }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from 'google-map-react';
 import {
@@ -50,6 +50,7 @@ function DirectionRenderer(props) {
     props.setDirection2Location(directions.routes[0].legs[0].steps);
 
     directionsRenderer.setDirections(directions);
+    directionsRenderer.setPanel(props.panel.current);
   }
 
   useEffect(() => {
@@ -82,9 +83,10 @@ const Map = ({
   const [startLatLngSubmit, setStartLatLngSubmit] = useState({});
   const [endLatLngSubmit, setEndLatLngSubmit] = useState({});
   const [mapCenter, updateMapCenter] = useState({
-    lat: 33.9416,
-    lng: -118.4085,
+    lat: 33.94407320929345,
+    lng: -118.40405015962253,
   });
+  const panel = useRef();
 
   const [endPoint, setEndPoint] = useState(null);
   const [endLatLng, setEndLatLng] = useState({});
@@ -123,7 +125,7 @@ const Map = ({
   }
 
   return (
-    <div className='header'>
+    <div className='header-map'>
       <Header
         handleSelectStart={handleSelectStart}
         handleChangeStart={handleChangeStart}
@@ -132,9 +134,44 @@ const Map = ({
         handleSubmit={handleSubmit}
       />
 
-      <div className={classes.mapContainer}>
+      <div
+        className={classes.mapContainer}
+        style={{
+          borderRadius: 40,
+          borderTopLeftRadius: 10,
+          borderTopRightRadius: 10,
+          overflow: 'hidden',
+          borderTopLeftRadius: 0,
+          borderTopRightRadius: 0,
+        }}
+      >
+        <div
+          className='directions-panel'
+          style={{
+            maxHeight: 1080,
+            float: 'right',
+            width: '420px',
+            overflow: 'scroll',
+            position: 'relative',
+            fontSize: 28,
+            fontFamily: 'Helvetica Neue',
+            borderRadius: '5px',
+            color: '#000',
+            fontWeight: '200px',
+            zIndex: 5,
+            paddingLeft: '10px',
+            paddingRight: '20px',
+            borderRadius: '15px',
+            opacity: 0.9,
+            backgroundColor: '#DFDFF0',
+          }}
+          ref={panel}
+        ></div>
+
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyD_SFCAXBuXnQua8ixjsfOrnaaF2QwTl4I' }}
+          bootstrapURLKeys={{
+            key: 'AIzaSyD_SFCAXBuXnQua8ixjsfOrnaaF2QwTl4I',
+          }}
           defaultCenter={coords}
           center={mapCenter}
           defaultZoom={17}
@@ -157,8 +194,10 @@ const Map = ({
               origin={startLatLngSubmit}
               destination={endLatLngSubmit}
               setDirection2Location={setDirection2Location}
+              panel={panel}
             />
           )}
+
           {places.map((place, i) => (
             <div
               className={classes.markerContainer}
@@ -186,7 +225,7 @@ const Map = ({
                     className={classes.pointer}
                     src={
                       place.photo
-                        ? place.photo.images.large.url
+                        ? place.photo.images.medium.url
                         : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'
                     }
                   />

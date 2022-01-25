@@ -6,6 +6,8 @@ import List from './components/List/List';
 import Map from './components/Map/Map';
 import useStyles from '../src/components/Map/styles';
 import ScrollIntoView from 'react-scroll-into-view';
+import './App.css';
+import { SeverityPill } from './components/helpers/severity-pill.js';
 
 const App = () => {
   const classes = useStyles();
@@ -56,9 +58,10 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className='cover'>
       <CssBaseline />
-      <Grid container spacing={3} style={{ width: '100%' }}>
+
+      <Grid container spacing={3} style={{ width: '100%', marginBottom: '40px' }}>
         <Grid item xs={12} md={4}>
           <List
             isLoading={isLoading}
@@ -69,47 +72,9 @@ const App = () => {
             rating={rating}
             setRating={setRating}
           />
-
-          {direction2Location.length > 1 && (
-            <Card
-              elevation={6}
-              style={{ marginLeft: 25, maxHeight: 200, overflow: 'auto' }}
-            >
-              <CardMedia style={{ height: 350 }}>
-                <ScrollIntoView>
-                  <div>
-                    {direction2Location.map((step) => {
-                      return (
-                        <div
-                          style={{
-                            marginLeft: 25,
-                            marginTop: 25,
-                            fontWeight: 500,
-                            fontSize: 20,
-                          }}
-                        >
-                          {step.instructions.replace(regex, '    ')}
-                          {step.duration.text} ({step.distance.text})
-                        </div>
-                      );
-                    })}
-                  </div>
-                </ScrollIntoView>
-              </CardMedia>
-            </Card>
-          )}
         </Grid>
 
-        <Grid
-          item
-          xs={12}
-          md={8}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+        <Grid item xs={12} md={8}>
           <Map
             setChildClicked={setChildClicked}
             setBounds={setBounds}
@@ -119,7 +84,7 @@ const App = () => {
           />
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 

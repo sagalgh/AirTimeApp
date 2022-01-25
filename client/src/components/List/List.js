@@ -7,13 +7,19 @@ import {
   FormControl,
   Select,
 } from '@material-ui/core';
-
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import WeekendIcon from '@mui/icons-material/Weekend';
+import LocalAtmIcon from '@mui/icons-material/LocalAtm';
+import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
+import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 import useStyles from '../List/style.js';
-<<<<<<< Updated upstream
-=======
-import '/Users/sagalghelle/Desktop/finalAirTimeApp/client/src/dropdown.css';
->>>>>>> Stashed changes
+
+import '../../dropdown.css';
+
+
+
 
 const List = ({
   places,
@@ -26,35 +32,38 @@ const List = ({
 }) => {
   const [elRefs, setElRefs] = useState([]);
   const classes = useStyles();
-
   useEffect(() => {
     const refs = Array(places.length)
       .fill()
       .map((_, i) => elRefs[i] || createRef());
     setElRefs(refs);
   }, [places]);
-
   return (
-    <div className={classes.container}>
+    <div className={classes.container}
+    style={{ color: '#902bf5',
+    marginTop: 10,
+     }}>
       {isLoading ? (
         <div className={classes.loading}>
           <CircularProgress size='3rem' />
         </div>
       ) : (
         <>
-          <FormControl className={classes.formControl}>
-            <InputLabel className={classes.input} id='type'>
-              Type
-            </InputLabel>
-            <Select
-              className={classes.input}
-              id='type'
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-            >
-              <MenuItem value='restaurants'>Restaurants</MenuItem>
-            </Select>
-          </FormControl>
+        <div class="container">
+  <div class="droppy">
+        <ul>
+		<li> Restaurants <RestaurantIcon/>
+    <ul class="drop-menu menu-2">
+				<li>Retail <LocalOfferIcon/></li>
+				<li>Lounges<WeekendIcon/> </li>
+				<li>ATM/Exchange <LocalAtmIcon/></li>
+				<li>Baby-Changing <ChildFriendlyIcon/> </li>
+				<li>Prayer Rooms <LocalLibraryIcon/> </li>
+			</ul>
+		</li>
+	</ul>
+  </div>
+  </div>
 
           <Grid container spacing={3} className={classes.list}>
             {places?.map((place, i) => (
@@ -72,5 +81,4 @@ const List = ({
     </div>
   );
 };
-
 export default List;

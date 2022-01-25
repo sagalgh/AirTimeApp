@@ -2,7 +2,7 @@ import { alpha, makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   paper: {
-    padding: '5px',
+    padding: '20px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -11,9 +11,12 @@ export default makeStyles((theme) => ({
     '&:hover': { transform: 'scale(1.2)' },
   },
   mapContainer: {
-    height: '83vh',
-    width: '100%',
-    // marginTop: '40px',
+    height: '78vh',
+    width: '57.3vw',
+    marginRight: '0px',
+    marginLeft: '22px',
+    border: '16px solid #1C2E4A',
+
     boxShadow: '-2px 2px 16px 2px rgba(0,0,0,0.25)',
     [theme.breakpoints.down('sm')]: {
       height: '80vh',
@@ -60,9 +63,7 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  inputRoot: {
-    color: 'inherit',
-  },
+  inputRoot: { color: 'inherit' },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
@@ -77,5 +78,15 @@ export default makeStyles((theme) => ({
 
   directions: {
     marginLeft: '30px',
+  },
+
+  appbar: {
+    marginTop: '20px',
+    width: '50vw',
+    marginLeft: '22px',
+    // borderTopLeftRadius: 25,
+    // borderTopRightRadius: 25,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
   },
 }));
