@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as Scroll from 'react-scroll';
 import { useNavigate } from 'react-router-dom';
 import '../css/chatPage.css';
-import '/Users/ansaarahmed/lighthouse/AirTimeApp/client/src/chathomepage.scss';
+import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/chathomepage.scss';
 import Typography from '@mui/material/Typography';
 import { typography } from '@mui/system';
 
