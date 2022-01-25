@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Typography from '@mui/material/Typography';
 import {Button} from '@material-ui/core';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function Navigation() {
   return (
@@ -40,7 +41,7 @@ function Navigation() {
                 <NavLink className="nav-link" to="/signin">
                 <Button variant="contained" style={{backgroundColor:'#912BF6',
                 borderRadius: '25px' ,
-                color: '#FFF'}} >Logout</Button>
+                color: '#FFF'}} >Logout  <LogoutIcon style={{marginLeft: '10px'}}></LogoutIcon></Button>
                 </NavLink>
               </li>
 

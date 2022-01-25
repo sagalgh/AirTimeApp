@@ -9,6 +9,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function Home() {
   const [autocomplete, setAutocomplete] = useState(null);
