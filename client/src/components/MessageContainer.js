@@ -8,7 +8,7 @@ const MessageContainer = (props) => {
   const [likedMessage, setLikedMessage] = useState(false);
   const clickHandler = function () {
     setLikedMessage(!likedMessage);
-    if (likedMessage) {
+    if (!likedMessage) {
       axios
         .post("http://localhost:9000/api/favorites", {
           roomID: props.message.roomId,

@@ -80,7 +80,10 @@ const apiMatchMessage = async function (pinnedMessage, categoryId) {
       },
     };
     const result = await axios.request(settings);
-    console.log(result.data.businesses[0], "result---line 83")
+    console.log(result.data.businesses[0].location.address1), "result---ONE"
+    console.log(result.data.businesses[0].location.city, "result---TWO")
+    console.log(result.data.businesses[0].location.zip_code, "result---THREE")
+    console.log(result.data.businesses[0].location.state, "result---THREE")
     return result.data.businesses[0];
   }
   if (categoryId === 103) {
@@ -95,6 +98,10 @@ const apiMatchMessage = async function (pinnedMessage, categoryId) {
     };
     const result = await axios.request(settings);
     console.log("result-----", result.data.businesses[0]);
+    console.log(result.data.businesses[0].location.address1), "result---ONE"
+    console.log(result.data.businesses[0].location.city, "result---TWO")
+    console.log(result.data.businesses[0].location.zip_code, "result---THREE")
+    console.log(result.data.businesses[0].location.state, "result---THREE")
     return result.data.businesses[0];
   }
   if (categoryId === 105) {
