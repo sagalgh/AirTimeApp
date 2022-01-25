@@ -61,7 +61,7 @@ const App = () => {
     <div className='cover'>
       <CssBaseline />
 
-      <Grid container spacing={3} style={{ width: '100%' }}>
+      <Grid container spacing={3} style={{ width: '100%', marginBottom: '40px' }}>
         <Grid item xs={12} md={4}>
           <List
             isLoading={isLoading}
