@@ -148,9 +148,9 @@ const Map = ({
         <div
           className='directions-panel'
           style={{
-            maxHeight: 810,
+            maxHeight: 1080,
             float: 'right',
-            width: '390px',
+            width: '420px',
             overflow: 'scroll',
             position: 'relative',
             fontSize: 28,
@@ -160,6 +160,7 @@ const Map = ({
             fontWeight: '200px',
             zIndex: 5,
             paddingLeft: '10px',
+            paddingRight: '20px',
             borderRadius: '15px',
             opacity: 0.9,
             backgroundColor: '#DFDFF0',
