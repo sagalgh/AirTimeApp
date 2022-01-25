@@ -30,7 +30,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
       elevation={6}
       style={{
         color: 'white',
-        marginTop: '10px',
+        marginTop: '60px',
         borderRadius: 60,
         overflow: 'hidden',
         backgroundColor: '#1C2E4A',
