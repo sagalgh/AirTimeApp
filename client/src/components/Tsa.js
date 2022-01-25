@@ -88,10 +88,9 @@ const orders = [
 export const Tsa = (props) => (
   <div id ='tsabackground'>
   <div style={{display: 'flex', justifyContent: 'center',}}>
+  <h1 style={{textAlign: 'center', fontSize:'48px' }}>Current Security Checkpoint Waiting Times
   <Card {...props} id='checkpoints' style={{marginTop: '60px'}} >
-  <Typography variant= 'h1'>
     <CardHeader id= 'tsacardheader' title='Current Security Checkpoint Waiting Times' style={{textAlign: 'center', marginBottom: '40px', fontSize: 'large'}} />
-    </Typography>
     <Box sx={{ minWidth: 600 }}>
       <Table>
         <TableHead>
@@ -100,7 +99,7 @@ export const Tsa = (props) => (
             <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Checkpoint Information</TableCell>
             <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Expedited Screening</TableCell>
 
-            <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Status                    <ErrorOutlineIcon style={{marginLeft: '10px', color: 'yellow'}}></ErrorOutlineIcon></TableCell>
+            <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -116,8 +115,8 @@ export const Tsa = (props) => (
               }}
               >
               {order.createdAt}</Button></TableCell>
-              <TableCell >
-                <SeverityPill 
+              <TableCell>
+                <SeverityPill className= 'blinkme'
                   color={
                     (order.status === '15 minutes or less' && 'success' ) ||
                     (order.status === 'Longer than 40 minutes' && 'error') ||
@@ -152,6 +151,7 @@ export const Tsa = (props) => (
       </Button>
     </Box>
   </Card>
+  </h1>
   </div>
   </div>
 );
