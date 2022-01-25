@@ -13,7 +13,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { borderRadius } from '@mui/system';
-import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/components/Register.js';
+
+
 
 const theme = createTheme();
 
@@ -29,25 +30,25 @@ export default function Register() {
   };
 
   return (
-    <div className='registration'>
-      <ThemeProvider theme={theme}>
-        <Container className='registration' component='main' maxWidth='sm'>
+    <div className= 'cover'>
+      <ThemeProvider theme={theme} >
+        <Container  component='main' maxWidth='sm'>
           <CssBaseline />
-          <Box
+          <Box 
             sx={{
-              marginTop: 0,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               backgroundColor: '#FFF',
               borderRadius: '25px',
               padding: '40px',
+              marginBottom: '180px'
             }}
           >
             <Avatar sx={{ marginTop: '20px', bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component='h1' variant='h5'>
+            <Typography component='h1' variant='h3' style={{color: '#000', marginTop: '10px', marginBottom: '10px'}}>
               Sign up
             </Typography>
             <Box
@@ -56,7 +57,7 @@ export default function Register() {
               onSubmit={handleSubmit}
               sx={{ mt: 2 }}
             >
-              <Grid container spacing={8}>
+              <Grid container  spacing={8}>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     autoComplete='given-name'
