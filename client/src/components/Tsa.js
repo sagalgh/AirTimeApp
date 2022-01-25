@@ -1,7 +1,12 @@
 import * as React from 'react';
+import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/checkpoints.css'
+
+
 
 import {
   Box,
+  Fab,
+  Typography,
   Button,
   Card,
   CardHeader,
@@ -14,6 +19,7 @@ import {
   Tooltip,
 } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import { SeverityPill } from './helpers/severity-pill';
 
 const orders = [
@@ -24,8 +30,8 @@ const orders = [
     customer: {
       name: '9, 10, 11A-11B, 12A-12B, 13-15, 16A, 17A-17B',
     },
-    createdAt: 1555016400000,
-    status: 'pending',
+    createdAt: 'AVAILABLE',
+    status: '15 minutes or less',
   },
   {
     id: 'Terminal 1',
@@ -34,8 +40,8 @@ const orders = [
     customer: {
       name: 'Hub for International Flights',
     },
-    createdAt: 1555016400000,
-    status: 'delivered',
+    createdAt: 'TSA PRECHECK ONLY',
+    status: '15 minutes or less',
   },
   {
     id: 'Terminal 1',
@@ -44,8 +50,8 @@ const orders = [
     customer: {
       name: 'Only used by Delta Airlines.',
     },
-    createdAt: 1554930000000,
-    status: 'refunded',
+    createdAt: 'AVAILABLE',
+    status: 'Longer than 40 minutes',
   },
   {
     id: 'Terminal 1',
@@ -54,8 +60,8 @@ const orders = [
     customer: {
       name: 'Only used by American Airlines',
     },
-    createdAt: 1554757200000,
-    status: 'pending',
+    createdAt: 'NO GLOBAL ENTRY',
+    status: 'Between 20 and 45 minutes',
   },
   {
     id: 'Terminal 1',
@@ -64,8 +70,8 @@ const orders = [
     customer: {
       name: '50A, 50B, 51A, 51B, 53A, 53B, 54A, 54B, 55A, 56, 57, 58, 59',
     },
-    createdAt: 1554670800000,
-    status: 'delivered',
+    createdAt: 'AVAILABLE',
+    status: '15 minutes or less',
   },
   {
     id: 'Terminal 1',
@@ -74,46 +80,54 @@ const orders = [
     customer: {
       name: '60, 63, 64A, 64B, 65A, 65B, 66, 67, 68A, 68B, 69A 69B',
     },
-    createdAt: 1554670800000,
-    status: 'delivered',
+    createdAt: 'AVAILABLE',
+    status: 'Longer than 40 minutes',
   },
 ];
 
 export const Tsa = (props) => (
-  <Card {...props}>
-    <CardHeader title='Latest Orders' />
-    <Box sx={{ minWidth: 800 }}>
+  <div id ='tsabackground'>
+  <div style={{display: 'flex', justifyContent: 'center',}}>
+  <Card {...props} id='checkpoints' style={{marginTop: '60px'}} >
+  <Typography variant= 'h1'>
+    <CardHeader id= 'tsacardheader' title='Current Security Checkpoint Waiting Times' style={{textAlign: 'center', marginBottom: '40px', fontSize: 'large'}} />
+    </Typography>
+    <Box sx={{ minWidth: 600 }}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Order Ref</TableCell>
-            <TableCell>Customer</TableCell>
-            <TableCell sortDirection='desc'>
-              <Tooltip enterDelay={300} title='Sort'>
-                <TableSortLabel active direction='desc'>
-                  Date
-                </TableSortLabel>
-              </Tooltip>
-            </TableCell>
-            <TableCell>Status</TableCell>
+            <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Terminal</TableCell>
+            <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Checkpoint Information</TableCell>
+            <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Expedited Screening</TableCell>
+
+            <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Status                    <ErrorOutlineIcon style={{marginLeft: '10px', color: 'yellow'}}></ErrorOutlineIcon></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {orders.map((order) => (
             <TableRow hover key={order.id}>
-              <TableCell>{order.ref}</TableCell>
-              <TableCell>{order.customer.name}</TableCell>
-              <TableCell></TableCell>
+              <TableCell style= {{color: '#FFF', fontSize:'20px', fontWeight: 600}}>{order.ref}</TableCell>
+              <TableCell style= {{color: '#FFF', fontSize:'18px'}}>{order.customer.name}</TableCell>
               <TableCell>
-                <SeverityPill
+              <Button variant='contained' style ={{
+                backgroundColor:'#16587E',
+                
+                borderRadius: '25px'
+              }}
+              >
+              {order.createdAt}</Button></TableCell>
+              <TableCell >
+                <SeverityPill 
                   color={
-                    (order.status === 'delivered' && 'success') ||
-                    (order.status === 'refunded' && 'error') ||
-                    'warning'
+                    (order.status === '15 minutes or less' && 'success' ) ||
+                    (order.status === 'Longer than 40 minutes' && 'error') ||
+                    'warning' 
                   }
                 >
                   {order.status}
                 </SeverityPill>
+
+
               </TableCell>
             </TableRow>
           ))}
@@ -130,13 +144,16 @@ export const Tsa = (props) => (
       <Button
         color='primary'
         endIcon={<ArrowRightIcon fontSize='small' />}
-        size='small'
-        variant='text'
+        size='medium'
+        variant='contained'
+        style={{backgroundColor: '#912BF6', borderRadius: '25px'}}
       >
-        View all
+        Make it even shorter!
       </Button>
     </Box>
   </Card>
+  </div>
+  </div>
 );
 
 export default Tsa;
