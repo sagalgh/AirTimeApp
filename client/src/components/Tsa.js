@@ -2,8 +2,11 @@ import * as React from 'react';
 import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/checkpoints.css'
 
 
+
 import {
   Box,
+  Fab,
+  Typography,
   Button,
   Card,
   CardHeader,
@@ -16,6 +19,7 @@ import {
   Tooltip,
 } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import { SeverityPill } from './helpers/severity-pill';
 
 const orders = [
@@ -85,23 +89,25 @@ export const Tsa = (props) => (
   <div id ='tsabackground'>
   <div style={{display: 'flex', justifyContent: 'center',}}>
   <Card {...props} id='checkpoints' style={{marginTop: '60px'}} >
-    <CardHeader title='Current Security Checkpoint Waiting Times' />
+  <Typography variant= 'h1'>
+    <CardHeader id= 'tsacardheader' title='Current Security Checkpoint Waiting Times' style={{textAlign: 'center', marginBottom: '40px', fontSize: 'large'}} />
+    </Typography>
     <Box sx={{ minWidth: 600 }}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Terminal</TableCell>
-            <TableCell>Checkpoint Information</TableCell>
-            <TableCell>Expedited Screening</TableCell>
+            <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Terminal</TableCell>
+            <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Checkpoint Information</TableCell>
+            <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Expedited Screening</TableCell>
 
-            <TableCell>Status</TableCell>
+            <TableCell style= {{color: '#FFF', fontSize:'30px'}}>Status                    <ErrorOutlineIcon style={{marginLeft: '10px', color: 'yellow'}}></ErrorOutlineIcon></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {orders.map((order) => (
             <TableRow hover key={order.id}>
-              <TableCell>{order.ref}</TableCell>
-              <TableCell>{order.customer.name}</TableCell>
+              <TableCell style= {{color: '#FFF', fontSize:'20px', fontWeight: 600}}>{order.ref}</TableCell>
+              <TableCell style= {{color: '#FFF', fontSize:'18px'}}>{order.customer.name}</TableCell>
               <TableCell>
               <Button variant='contained' style ={{
                 backgroundColor:'#16587E',
@@ -110,16 +116,18 @@ export const Tsa = (props) => (
               }}
               >
               {order.createdAt}</Button></TableCell>
-              <TableCell>
-                <SeverityPill
+              <TableCell >
+                <SeverityPill 
                   color={
-                    (order.status === '15 minutes or less' && 'success') ||
+                    (order.status === '15 minutes or less' && 'success' ) ||
                     (order.status === 'Longer than 40 minutes' && 'error') ||
-                    'warning'
+                    'warning' 
                   }
                 >
                   {order.status}
                 </SeverityPill>
+
+
               </TableCell>
             </TableRow>
           ))}
