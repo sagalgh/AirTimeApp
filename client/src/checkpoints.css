@@ -1,0 +1,15 @@
+#checkpoints {
+    height: 900px;
+    width: 1500px;
+    border-radius: 25px;
+    color: white;
+
+    background-color: rgba(0, 0, 0, 0.2);
+
+}
+
+#tsabackground {
+height: 100%;
+-webkit-backdrop-filter: blur(80px);
+backdrop-filter: blur(80px);
+}

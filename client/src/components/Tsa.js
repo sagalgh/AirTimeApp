@@ -1,4 +1,6 @@
 import * as React from 'react';
+import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/checkpoints.css'
+
 
 import {
   Box,
@@ -80,15 +82,17 @@ const orders = [
 ];
 
 export const Tsa = (props) => (
-  <Card {...props}>
-    <CardHeader title='Latest Orders' />
-    <Box sx={{ minWidth: 800 }}>
+  <div id ='tsabackground'>
+  <div style={{display: 'flex', justifyContent: 'center',}}>
+  <Card {...props} id='checkpoints' style={{marginTop: '60px'}} >
+    <CardHeader title='Current Security Checkpoint Waiting Times' />
+    <Box sx={{ minWidth: 600 }}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Order Ref</TableCell>
-            <TableCell>Customer</TableCell>
-            <TableCell sortDirection='desc'>
+            <TableCell>Terminal</TableCell>
+            <TableCell>Checkpoint Information</TableCell>
+            <TableCell Expedited Screening='desc'>
               <Tooltip enterDelay={300} title='Sort'>
                 <TableSortLabel active direction='desc'>
                   Date
@@ -130,13 +134,16 @@ export const Tsa = (props) => (
       <Button
         color='primary'
         endIcon={<ArrowRightIcon fontSize='small' />}
-        size='small'
-        variant='text'
+        size='medium'
+        variant='contained'
+        style={{backgroundColor: '#912BF6', borderRadius: '25px'}}
       >
-        View all
+        Make it even shorter!
       </Button>
     </Box>
   </Card>
+  </div>
+  </div>
 );
 
 export default Tsa;
