@@ -42,7 +42,7 @@ export default function Register() {
               backgroundColor: '#FFF',
               borderRadius: '25px',
               padding: '40px',
-              marginBottom: '180px'
+              marginBottom: '250px'
             }}
           >
             <Avatar sx={{ marginTop: '20px', bgcolor: 'secondary.main' }}>

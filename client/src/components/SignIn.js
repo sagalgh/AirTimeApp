@@ -132,7 +132,7 @@ export default function SignIn() {
                 autoComplete='current-password'
               />
               <Button
-                type='submit'
+                href='/'
                 fullWidth
                 variant='contained'
                 sx={{ mt: 3, mb: 2 }}
