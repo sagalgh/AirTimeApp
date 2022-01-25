@@ -114,6 +114,14 @@ html {
     backdrop-filter: blur(20px) !important;
   }
   
+#homebox {
+  background-color: rgba(0, 0, 0, 0.0);
+  backdrop-filter: blur(10px);
+  height: 400px;
+  border-radius: 60px;
+  text-align: center;
+}
+
   header nav ul {
     display: flex;
   }
