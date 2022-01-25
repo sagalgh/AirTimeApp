@@ -15,7 +15,7 @@ import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 import useStyles from '../List/style.js';
-import '/Users/sagalghelle/Desktop/finalAirTimeApp/client/src/dropdown.css';
+import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/dropdown.css';
 
 const List = ({
   places,
@@ -28,25 +28,39 @@ const List = ({
 }) => {
   const [elRefs, setElRefs] = useState([]);
   const classes = useStyles();
-
   useEffect(() => {
     const refs = Array(places.length)
       .fill()
       .map((_, i) => elRefs[i] || createRef());
     setElRefs(refs);
   }, [places]);
-
   return (
-    <div
-      className={classes.container}
-      style={{ color: '#902bf5', marginTop: 10 }}
-    >
+    <div className={classes.container}
+    style={{ color: '#902bf5',
+    marginTop: 10,
+     }}>
       {isLoading ? (
         <div className={classes.loading}>
           <CircularProgress size='3rem' />
         </div>
       ) : (
         <>
+        <div class="container">
+  <div class="droppy">
+        <ul>
+		<li> Restaurants <RestaurantIcon/>
+    <ul class="drop-menu menu-2">
+				<li>Retail <LocalOfferIcon/></li>
+				<li>Lounges<WeekendIcon/> </li>
+				<li>ATM/Exchange <LocalAtmIcon/></li>
+				<li>Baby-Changing <ChildFriendlyIcon/> </li>
+				<li>Prayer Rooms <LocalLibraryIcon/> </li>
+			</ul>
+		</li>
+	</ul>
+  </div>
+  </div>
+
           <Grid container spacing={3} className={classes.list}>
             {places?.map((place, i) => (
               <Grid ref={elRefs[i]} key={i} item xs={12}>
@@ -63,5 +77,4 @@ const List = ({
     </div>
   );
 };
-
 export default List;

@@ -33,7 +33,7 @@ export default makeStyles((theme) => ({
     marginBottom: '30px',
   },
   list: {
-    height: '73.5vh',
+    height: '84vh',
     overflow: 'auto',
   },
 }));

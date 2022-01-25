@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from 'google-map-react';
 import {
@@ -50,6 +50,7 @@ function DirectionRenderer(props) {
     props.setDirection2Location(directions.routes[0].legs[0].steps);
 
     directionsRenderer.setDirections(directions);
+    directionsRenderer.setPanel(props.panel.current);
   }
 
   useEffect(() => {
@@ -85,6 +86,7 @@ const Map = ({
     lat: 33.94407320929345,
     lng: -118.40405015962253,
   });
+  const panel = useRef();
 
   const [endPoint, setEndPoint] = useState(null);
   const [endLatLng, setEndLatLng] = useState({});
@@ -143,6 +145,29 @@ const Map = ({
           borderTopRightRadius: 0,
         }}
       >
+        <div
+          className='directions-panel'
+          style={{
+            maxHeight: 1080,
+            float: 'right',
+            width: '420px',
+            overflow: 'scroll',
+            position: 'relative',
+            fontSize: 28,
+            fontFamily: 'Helvetica Neue',
+            borderRadius: '5px',
+            color: '#000',
+            fontWeight: '200px',
+            zIndex: 5,
+            paddingLeft: '10px',
+            paddingRight: '20px',
+            borderRadius: '15px',
+            opacity: 0.9,
+            backgroundColor: '#DFDFF0',
+          }}
+          ref={panel}
+        ></div>
+
         <GoogleMapReact
           bootstrapURLKeys={{
             key: 'AIzaSyD_SFCAXBuXnQua8ixjsfOrnaaF2QwTl4I',
@@ -169,8 +194,10 @@ const Map = ({
               origin={startLatLngSubmit}
               destination={endLatLngSubmit}
               setDirection2Location={setDirection2Location}
+              panel={panel}
             />
           )}
+
           {places.map((place, i) => (
             <div
               className={classes.markerContainer}

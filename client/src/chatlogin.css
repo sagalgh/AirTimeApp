@@ -1,0 +1,97 @@
+
+  h2 {
+    font-size: 1.75rem;
+    font-family: Helvetica, sans-serif;
+  }
+  
+  input {
+    font-family: Helvetica, sans-serif;
+    background-image: none;
+    border: none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s;
+  }
+
+  /* ---------- ALIGN ---------- */
+  .align {
+    display: grid;
+    place-items: center;
+  }
+  
+  /* ---------- BUTTON ---------- */
+  
+  .button {
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    padding: 0.25em 1.5em;
+
+  }
+  
+
+  
+  /* ---------- ICONS ---------- */
+  .icons {
+    display: none;
+  }
+  
+  .icon {
+    fill: currentcolor;
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+  }
+  
+  /* ---------- LOGIN ---------- */
+  .login {
+    width: 300px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .login__form {
+    background-color: #fff;
+    color: #777;
+    display: grid;
+    gap: 4em;
+    padding: 10px;
+  }
+  
+  .login input {
+    border-radius: 25px;
+  }
+  
+  .login input[type="email"],
+  .login input[type="password"] {
+    background-color: #eee;
+    color: #777;
+    padding: 0.25em 0.625em;
+    width: 100%;
+  }
+  
+  .login input[type="submit"] {
+    display: block;
+    margin: 30px auto;
+  }
+
+
+
+  .chatmodal {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  #chatbackground {
+    height: 650px;
+    width: 1500px;
+    margin-bottom: 250px;
+    border-radius: 25px;
+    color: white;
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
