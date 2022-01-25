@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Typography from '@mui/material/Typography';
+import {Button} from '@material-ui/core';
 
 function Navigation() {
   return (
@@ -28,6 +29,18 @@ function Navigation() {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/tsa">
                 <Typography component="h1" variant="h6" style={{opacity: 0.9}} > Checkpoints </Typography>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/tsa">
+                <Typography component="h1" variant="h6" style={{opacity: 0.9}} > Favorites </Typography>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/signin">
+                <Button variant="contained" style={{backgroundColor:'#912BF6',
+                borderRadius: '25px' ,
+                color: '#FFF'}} >Logout</Button>
                 </NavLink>
               </li>
 
