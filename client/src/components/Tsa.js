@@ -90,7 +90,7 @@ export const Tsa = (props) => (
   <div style={{display: 'flex', justifyContent: 'center',}}>
   <h1 style={{textAlign: 'center', fontSize:'48px' }}>Current Security Checkpoint Waiting Times
   <Card {...props} id='checkpoints' style={{marginTop: '60px'}} >
-    <CardHeader id= 'tsacardheader' title='Current Security Checkpoint Waiting Times' style={{textAlign: 'center', marginBottom: '40px', fontSize: 'large'}} />
+    <CardHeader id= 'tsacardheader' title='' style={{textAlign: 'center', marginBottom: '40px', fontSize: 'large'}} />
     <Box sx={{ minWidth: 600 }}>
       <Table>
         <TableHead>
