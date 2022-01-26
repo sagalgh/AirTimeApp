@@ -44,6 +44,7 @@ ReactDOM.render(
       <Route path='/pinnedchat' element={<PinnedChats />}></Route>
       <Route path='/register' element={<Register />}></Route>
       <Route path='/signin' element={<SignIn />}></Route>
+      
     </Routes>
     </Provider>
   </Router>
