@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/css/chatPage.css'
+import './chatlogin.css'
 
 
 

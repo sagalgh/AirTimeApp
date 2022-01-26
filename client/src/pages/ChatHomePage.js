@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import * as Scroll from 'react-scroll';
 import { useNavigate } from 'react-router-dom';
 import '../css/chatPage.css';
-import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/chathomepage.scss';
-import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/chatlogin.css'
-import ChatModal from '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/chatmodal.js'
+import '../chathomepage.scss';
+import '../chatlogin.css'
+import ChatModal from '../chatmodal'
+
 import Typography from '@mui/material/Typography';
 import { typography } from '@mui/system';
 import Card from '@mui/material/Card'

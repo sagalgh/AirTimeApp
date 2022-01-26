@@ -1,6 +1,6 @@
 import * as React from 'react';
-import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/checkpoints.css'
 
+import '../checkpoints.css'
 
 
 import {

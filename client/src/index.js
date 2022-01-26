@@ -16,6 +16,7 @@ import Register from './components/Register';
 import SignIn from './components/SignIn';
 import {ChatPage} from './containers/ChatPage';
 import { ChatRoom } from './containers/ChatRoom';
+import { PinnedChats } from './containers/PinnedChat';
 import { applyMiddleware, createStore } from "redux";
 import { rootReducer } from "./reducers";
 import { Provider } from "react-redux";
@@ -40,6 +41,7 @@ ReactDOM.render(
       <Route path='/tsa' element={<Tsa />}></Route>
       <Route path='/chathomepage' element={<ChatPage />}></Route>
       <Route path='/chatroom' element={<ChatRoom />}></Route>
+      <Route path='/pinnedchat' element={<PinnedChats />}></Route>
       <Route path='/register' element={<Register />}></Route>
       <Route path='/signin' element={<SignIn />}></Route>
       

@@ -28,24 +28,21 @@ CREATE TABLE flights (
   origin INTEGER REFERENCES airports(id) ON DELETE CASCADE
 )
 
--- CREATE TABLE messages (
---   id SERIAL PRIMARY KEY NOT NULL,
---   messages VARCHAR(255) NOT NULL,
---   time TIMESTAMP,
---   user_id INTEGER REFERENCES user(id) ON DELETE CASCADE,
---   flight_id INTEGER REFERENCES flight(id) ON DELETE CASCADE
--- )
-
--- CREATE TABLE chat_rooms(
---   id SERIAL PRIMARY KEY NOT NULL,
--- )
-
 CREATE TABLE favorited_chats(
   id SERIAL PRIMARY KEY NOT NULL,
-  room_id INTEGER NOT NULL,
+  room_id VARCHAR(255) NOT NULL,
   user_id VARCHAR NOT NULL,
-  text VARCHAR(255) NOT NULL
-)
+  text VARCHAR(255) NOT NULL,
+  url VARCHAR(255) NOT NULL,
+  image_url VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+ address_street VARCHAR(255),
+ address_city VARCHAR(255),
+ address_state VARCHAR(255),
+ address_zipcode VARCHAR(255),
+ display_phone VARCHAR(255),
+ rating VARCHAR(255)
+);
 
 CREATE TABLE favorited_chats_categories (
   id SERIAL PRIMARY KEY NOT NULL,

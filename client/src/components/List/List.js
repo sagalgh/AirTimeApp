@@ -15,7 +15,11 @@ import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 import useStyles from '../List/style.js';
-import '/Users/sagalafrah/lighthouse/w11/AirTimeApp/client/src/dropdown.css';
+
+import '../../dropdown.css';
+
+
+
 
 const List = ({
   places,
