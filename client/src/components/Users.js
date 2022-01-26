@@ -2,7 +2,7 @@ import React from 'react'
 import User from './User'
 const Users = (props) => {
   return (
-    <div className="userList-container col">
+    <div style={{width: '5vw'}} className="userList-container col">
             <div className="userList">
                 <div id="userlist-title" className="row center">
                     <p>Users</p>
