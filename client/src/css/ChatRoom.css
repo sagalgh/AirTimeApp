@@ -4,7 +4,7 @@ h1, h2, h3, h4, input, label{
 }
 
 html, .App{
-  /* background-color: #1c2224; */
+  /* margin-bottom: 100px; */
 }
 
 .max-width{
@@ -12,6 +12,10 @@ html, .App{
 }
 .flex-container{
   display:flex;
+  height: 100vh;
+  width: 100%;
+  /* -webkit-backdrop-filter: blur(80px);
+  backdrop-filter: blur(80px); */
 }
 
 #app{
@@ -22,6 +26,7 @@ html, .App{
   display:flex;
   justify-content: flex-end;
 }
+
 #users{
   overflow-y: auto;
   overflow-x: hidden; 
@@ -30,14 +35,16 @@ html, .App{
 .userList{
   display:flex;
   flex-direction: column;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   width: 15vw;
   border-top-right-radius: 1em;
 }
 
 #userlist-title{
   line-height: 30px;
-  background-color: #f361fb;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   padding-top:10px;
   color:white;
   /* box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75); */
@@ -51,11 +58,12 @@ html, .App{
   /* height:86vh; */
   box-shadow: 2px 0px 10px 1px rgba(0,0,0,0.75);
   border-top-right-radius: 1em;
-  /* border-bottom-right-radius: 1em; */
-  /* background: linear-gradient(to top, #11151d 23%, #491362 100%); */
-  /* background-color: #254455; */
-  background-color: #f361fb
-  ; 
+  width:1vw;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 
 
@@ -68,14 +76,13 @@ html, .App{
   border-bottom-left-radius: 1em;
 }
 .messageBox-container{
-  border-top-left-radius: 1em;
-  background-image: url("../resources/img/chat-wallpaper.jpg");
-  /* background-repeat: no-repeat; */
+  border-top-left-radius: 0em;
+  background-repeat: no-repeat;
   background-size: 500px;
   display:flex;
-  align-items: stretch;
-  /* opacity: 50%; */
+  /* align-items: stretch; */
   flex:3;
+  /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 .messageBox-container-header{
@@ -83,9 +90,10 @@ html, .App{
   padding: 1em;
   border-top-left-radius: 1em;
   height:6vh;
-  /* background-color: rgb(196, 69, 69); */
-  /* background-color: #2d6885; */
-  background-color: #1a1463;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  top: 10;
   color:white
 }
 #messages::-webkit-scrollbar {
@@ -107,9 +115,15 @@ html, .App{
 .ownMessage{
   align-self:flex-end;
   display: flex;
+  margin-top: 20px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius:0px;
+  border-top-left-radius:25px;
+  border-top-right-radius:25px;
   padding: 10px 10px 0px 10px;
   background-color:#1a1463;
-  border-radius: 10px;
+
+
   width: auto;
   max-width: 20vw;
   min-width: 6vw;
@@ -120,10 +134,14 @@ html, .App{
 .message{
   display:flex;
   align-self:flex-start;
+  margin-top: 20px;
   padding: 10px 10px 0px 10px;
   background-color: 
-  #902BF5;;
-  border-radius: 10px;
+  #902BF5;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius:25px;
+  border-top-left-radius:25px;
+  border-top-right-radius:25px;
   width: auto;
   max-width: 20vw;
   min-width: 6vw;
@@ -146,17 +164,27 @@ html, .App{
   flex-grow: 1;
 }
 #msgInput{
+
+  display:flex;
+  justify-content: flex-end;
+  margin-top: 10px;;
   border-top-left-radius: 5em;
   border-bottom-left-radius: 5em;
-  flex-grow: 1;
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
   resize: none;
+  width: 1359px;
   max-height: 120px;
 }
 
 .btn{
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
-  font-family: 'Varela';
+  font-family: 'Helvetica';
+  background-color: #912BF6;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  margin-left: 0px;
+  border: 0;
+  height: 40px;
+  margin-top: 11px;
 }
 
 .username{
@@ -190,6 +218,8 @@ html, .App{
 .row{
   display: flex;
   flex-direction: row;
+ 
+  
 }
 
 .left{
@@ -216,20 +246,36 @@ html, .App{
   width:20px;
 }
 
-#emoji-btn{
+.btn-secondary{
   max-width: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin-right: -6px;
 
 }
 
 .emojiPicker{
   position: absolute;
-  bottom:5vh;
+  bottom:5.5vh;
   right:1vw;
 }
+
 #exit-btn{
   width: 30px;
   cursor: pointer;
   height:40px;
   margin-left:20px;
   padding-bottom: 10px;
+}
+
+#typingStatus {
+margin-left: 900px;
+font-size: 25px;
+font-weight: 700;
+
+
+}
+.text-white {
+  margin-left: 100px;
+  top: 55%;
 }

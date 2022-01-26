@@ -99,11 +99,13 @@ export const ChatRoom = (props) => {
     };
   
     return (
+        <div id='tsabackground'>
         <div className="flex-container col App ">
             <div id="app">
                 <div className="row">
                     <MessageBox />
                     <UserList />
+                    <MessageTextArea />
                 </div>
 
                 <div id="typingStatus">
@@ -111,8 +113,9 @@ export const ChatRoom = (props) => {
                         {renderTypingUsers()}
                     </small>
                 </div>
-                <MessageTextArea />
+                
             </div>
+        </div>
         </div>
     );
 };
