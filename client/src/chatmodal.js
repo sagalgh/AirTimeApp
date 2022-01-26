@@ -86,7 +86,7 @@ export default function ChatModal() {
                       </Typography>
                       <h5>
                         You can use any username you want with numbers and
-                        letters. Be ask creative as you like and feel free to
+                        letters. Be as creative as you like and feel free to
                         use a nickname!
                       </h5>
                     </div>
