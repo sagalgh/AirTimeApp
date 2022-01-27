@@ -36,10 +36,10 @@ Airports can be frustrating and overwhelming. Travelling to new places, travelli
 - Bootstrap
 - HTML/CSS
 - SASS
+- Redux
 
 Back-End
 - NodeJS
-- Redux
 - Socket IO
 - PostgreSQL
 - API (google maps, trip advisor, and yelp)
